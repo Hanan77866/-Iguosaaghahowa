@@ -1,751 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iguosa Aghahowa | Tech Portfolio</title>
-    <style>
-        /* ===== CYBERPUNK DARK THEME ===== */
-        :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #0f0f1a;
-            --bg-glass: rgba(15, 15, 26, 0.7);
-            --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --neon-blue: #00f3ff;
-            --neon-purple: #d300ff;
-            --neon-green: #00ff9d;
-            --neon-orange: #ff6b00;
-        }
+  <meta charset="UTF-8" />
+  <title>Iguosa Aghahowa | IT Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            cursor: none;
-        }
+    body {
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a, #0c0c0c);
+      color: #e0e0e0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-        /* ===== CUSTOM CURSOR ===== */
-        .cursor {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--neon-blue);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            transition: all 0.1s ease;
-            z-index: 9999;
-        }
+    /* FLOATING BACKGROUND */
+    .bg-orbs span {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      background: rgba(0, 245, 255, 0.08);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+      z-index: -1;
+    }
 
-        .cursor-follower {
-            width: 40px;
-            height: 40px;
-            background: rgba(0, 243, 255, 0.1);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            z-index: 9998;
-        }
+    .bg-orbs span:nth-child(1) { top: 10%; left: 10%; animation-duration: 25s; }
+    .bg-orbs span:nth-child(2) { top: 60%; left: 70%; animation-duration: 30s; }
+    .bg-orbs span:nth-child(3) { top: 30%; left: 40%; animation-duration: 20s; }
 
-        /* ===== ANIMATIONS ===== */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(60px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes float {
+      from { transform: translateY(0) translateX(0); }
+      to { transform: translateY(-200px) translateX(200px); }
+    }
 
-        @keyframes typewriter {
-            from { width: 0; }
-            to { width: 100%; }
-        }
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
 
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
+    nav h1 {
+      font-size: 22px;
+      color: #00f5ff;
+      letter-spacing: 1px;
+    }
 
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue); }
-            50% { box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue); }
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
 
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
-        }
+    nav ul li a {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+    }
 
-        @keyframes slideInLeft {
-            from { transform: translateX(-100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00f5ff;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
 
-        @keyframes slideInRight {
-            from { transform: translateX(100px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
+    nav ul li a:hover::after {
+      width: 100%;
+    }
 
-        /* ===== PARTICLES BACKGROUND ===== */
-        #particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+    nav ul li a:hover {
+      color: #00f5ff;
+      text-shadow: 0 0 5px #00f5ff;
+    }
 
-        /* ===== HERO SECTION ===== */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(ellipse at center, #1a1a2e 0%, #0a0a0a 70%);
-        }
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      background: radial-gradient(circle at top, #101820, #050505);
+    }
 
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            animation: fadeInUp 1s ease-out;
-        }
+    .hero h2 {
+      font-size: 52px;
+      margin-bottom: 20px;
+      color: #00f5ff;
+      animation: glow 2s infinite alternate;
+    }
 
-        .hero h1 {
-            font-size: 5em;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple), var(--neon-green));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-            animation: glow 3s ease-in-out infinite alternate;
-        }
+    .hero h2 span {
+      color: white;
+    }
 
-        .hero .role {
-            font-size: 1.8em;
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #cccccc;
+      animation: fadeUp 2s ease;
+    }
 
-        .hero .goal {
-            font-size: 1.2em;
-            color: var(--neon-orange);
-            margin-bottom: 30px;
-            font-family: 'Courier New', monospace;
-            border-right: 3px solid var(--neon-orange);
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typewriter 4s steps(40) 1s forwards, blink 0.75s step-end infinite;
-        }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00f5ff; }
+      to { text-shadow: 0 0 25px #00f5ff; }
+    }
 
-        .hero-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-        .info-chip {
-            background: var(--bg-glass);
-            border: 1px solid var(--neon-blue);
-            padding: 15px 25px;
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
+    /* SECTIONS */
+    section {
+      padding: 100px 10%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s ease;
+    }
 
-        .info-chip:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 243, 255, 0.3);
-        }
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-        /* ===== SECTION HEADERS ===== */
-        .section {
-            padding: 100px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    section h3 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #00f5ff;
+      border-left: 4px solid #00f5ff;
+      padding-left: 15px;
+    }
 
-        .section h2 {
-            font-size: 3em;
-            text-align: center;
-            margin-bottom: 60px;
-            color: var(--neon-purple);
-            position: relative;
-        }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
 
-        .section h2::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            margin: 20px auto;
-            border-radius: 2px;
-        }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      transition: 0.4s;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
 
-        /* ===== VALUE CARDS ===== */
-        .values-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 60px;
-        }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0,245,255,0.15), transparent);
+      transition: 0.5s;
+    }
 
-        .value-card {
-            background: var(--bg-glass);
-            border: 1px solid var(--neon-purple);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
+    .card:hover::before {
+      top: 0;
+      left: 0;
+    }
 
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, var(--neon-purple) 0%, transparent 70%);
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
+    }
 
-        .value-card:hover::before {
-            opacity: 0.1;
-        }
+    .card h4 {
+      margin-bottom: 15px;
+      color: #00f5ff;
+    }
 
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(211, 0, 255, 0.4);
-        }
+    .card p, .card ul {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #dddddd;
+    }
 
-        .value-card h3 {
-            color: var(--neon-blue);
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
+    .card ul {
+      padding-left: 20px;
+    }
 
-        /* ===== SKILLS ===== */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: linear-gradient(180deg, #050505, #101820);
+    }
 
-        .skill-category h3 {
-            color: var(--neon-green);
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
+    .contact p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
 
-        .skill-item {
-            margin: 20px 0;
-            padding: 20px;
-            background: var(--bg-glass);
-            border-radius: 15px;
-            border-left: 3px solid var(--neon-blue);
-        }
+    .contact a {
+      color: #00f5ff;
+      text-decoration: none;
+    }
 
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+      font-size: 14px;
+    }
 
-        .skill-bar {
-            height: 6px;
-            background: var(--bg-tertiary);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-            width: 0;
-            transition: width 2s ease;
-        }
-
-        /* ===== PROJECTS ===== */
-        .project-card {
-            background: var(--bg-glass);
-            border: 1px solid var(--neon-orange);
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
-            transition: all 0.5s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 50px rgba(255, 107, 0, 0.3);
-        }
-
-        .project-card h3 {
-            color: var(--neon-orange);
-            font-size: 1.8em;
-            margin-bottom: 20px;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .tech-tag {
-            background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-
-        /* ===== LEARNING LOG ===== */
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: linear-gradient(to bottom, var(--neon-blue), var(--neon-purple), var(--neon-green));
-        }
-
-        .timeline-item {
-            background: var(--bg-glass);
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 20px;
-            position: relative;
-            backdrop-filter: blur(10px);
-            border-left: 3px solid var(--neon-blue);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -47px;
-            top: 35px;
-            width: 20px;
-            height: 20px;
-            background: var(--neon-blue);
-            border-radius: 50%;
-            border: 4px solid var(--bg-primary);
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            text-align: center;
-            padding: 60px;
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--neon-purple);
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 3em; }
-            .section { padding: 60px 30px; }
-            .skills-grid { grid-template-columns: 1fr; }
-            .hero-info { flex-direction: column; align-items: center; }
-        }
-
-        /* ===== SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--neon-blue), var(--neon-purple));
-            border-radius: 4px;
-        }
-    </style>
+    @media(max-width: 600px) {
+      .hero h2 { font-size: 32px; }
+      nav { flex-direction: column; gap: 10px; }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
 
-    <!-- PARTICLES BACKGROUND -->
-    <canvas id="particles"></canvas>
+  <!-- FLOATING BACKGROUND -->
+  <div class="bg-orbs">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Iguosa Aghahowa</h1>
-            <div class="role">HCA Assistant @ NHS</div>
-            <div class="goal">// Upgrading career into IT // BSc Computer Science</div>
-            
-            <div class="hero-info">
-                <div class="info-chip">📧 Iguosaaghahowa@yahoo.com</div>
-                <div class="info-chip">📱 07495072722</div>
-                <div class="info-chip">🎓 CS Undergraduate</div>
-            </div>
-        </div>
-    </section>
+  <nav>
+    <h1>Iguosa Aghahowa</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Work Examples</a></li>
+      <li><a href="#learning">Learning Log</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- VALUES SECTION -->
-    <section class="section" style="animation: fadeInUp 1s ease-out 0.5s both;">
-        <h2>Core Values</h2>
-        <div class="values-container">
-            <div class="value-card">
-                <h3>Honesty</h3>
-                <p style="color: var(--text-secondary);">Foundation of trust</p>
-            </div>
-            <div class="value-card">
-                <h3>Integrity</h3>
-                <p style="color: var(--text-secondary);">Consistency in action</p>
-            </div>
-            <div class="value-card">
-                <h3>Authenticity</h3>
-                <p style="color: var(--text-secondary);">Genuine self</p>
-            </div>
-            <div class="value-card">
-                <h3>Compassion</h3>
-                <p style="color: var(--text-secondary);">Understanding others</p>
-            </div>
-            <div class="value-card">
-                <h3>Kindness</h3>
-                <p style="color: var(--text-secondary);">Meaningful interactions</p>
-            </div>
-            <div class="value-card">
-                <h3>Empathy</h3>
-                <p style="color: var(--text-secondary);">Shared perspectives</p>
-            </div>
-            <div class="value-card">
-                <h3>Courage</h3>
-                <p style="color: var(--text-secondary);">Embracing change</p>
-            </div>
-            <div class="value-card">
-                <h3>Resilience</h3>
-                <p style="color: var(--text-secondary);">Persistent growth</p>
-            </div>
-        </div>
-    </section>
+  <!-- HOME -->
+  <div class="hero" id="home">
+    <div>
+      <h2>I'm <span>Iguosa Aghahowa</span>, a Future IT Professional</h2>
+      <p>
+        I am an undergraduate Computer Science student and NHS Healthcare Assistant with a strong commitment to
+        personal growth, professional integrity, and lifelong learning. My long-term goal is to transition into
+        the IT industry, where I can apply technical knowledge, problem-solving abilities, and compassionate values
+        to create reliable and user-focused digital solutions. I believe in honesty, resilience, and empathy as
+        the foundation for both professional excellence and meaningful teamwork.
+      </p>
+    </div>
+  </div>
 
-    <!-- SKILLS SECTION -->
-    <section class="section" style="animation: fadeInUp 1s ease-out 1s both;">
-        <h2>Technical & Professional Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category" style="animation: slideInLeft 1s ease-out 1.5s both;">
-                <h3>Technical</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Python Programming</div>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>HTML & CSS</span>
-                        <span>80%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="80%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Git & GitHub</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Database/SQL</span>
-                        <span>65%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="65%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category" style="animation: slideInRight 1s ease-out 1.5s both;">
-                <h3>Professional</h3>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Reading & Documentation</span>
-                        <span>95%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="95%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Content Creation</span>
-                        <span>90%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="90%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Book Blogging</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="85%"></div>
-                    </div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span>Dual-Language Learning</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-width="75%"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h3>Skills & Achievements</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Technical Skills</h4>
+        <ul>
+          <li>HTML & CSS fundamentals for structured and accessible websites</li>
+          <li>Basic programming concepts using Python</li>
+          <li>GitHub and version control for portfolio deployment</li>
+          <li>IT infrastructure and system fundamentals</li>
+          <li>Logical problem-solving through academic projects</li>
+        </ul>
+      </div>
 
-    <!-- PROJECTS SECTION -->
-    <section class="section" style="animation: fadeInUp 1s ease-out 1.5s both;">
-        <h2>Projects</h2>
-        
-        <div class="project-card">
-            <h3>Professional Tech Portfolio</h3>
-            <div class="tech-stack">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">GitHub Pages</span>
-                <span class="tech-tag">Cyberpunk UI</span>
-            </div>
-            <p>High-tech portfolio showcasing career transition from NHS to IT. Features dark theme, animations, particle effects, and glassmorphism design – demonstrating frontend skills and modern UI/UX sensibilities.</p>
-        </div>
-        
-        <div class="project-card">
-            <h3>Book Blogging & Reading Log System</h3>
-            <div class="tech-stack">
-                <span class="tech-tag">Content Creation</span>
-                <span class="tech-tag">Documentation</span>
-                <span class="tech-tag">Annotation</span>
-            </div>
-            <p>Personal knowledge management system for tracking reads, creating blog content, annotating texts, and generating headlines. Shows strong documentation and content organization skills transferable to technical writing.</p>
-        </div>
-        
-        <div class="project-card">
-            <h3>Dual-Language Learning Framework</h3>
-            <div class="tech-stack">
-                <span class="tech-tag">Self-Learning</span>
-                <span class="tech-tag">Language Skills</span>
-                <span class="tech-tag">Study Methods</span>
-            </div>
-            <p>Developed personalized methodology using dual-language books for enhanced comprehension. Demonstrates innovative learning approaches and adaptability – key traits for continuous tech education.</p>
-        </div>
-    </section>
+      <div class="card">
+        <h4>Professional Skills</h4>
+        <ul>
+          <li>Communication through blogging and documentation</li>
+          <li>Critical thinking via text annotation</li>
+          <li>Time management in healthcare and academic settings</li>
+          <li>Team collaboration within NHS multidisciplinary teams</li>
+          <li>Adaptability in high-pressure environments</li>
+        </ul>
+      </div>
 
-    <!-- LEARNING LOG -->
-    <section class="section" style="animation: fadeInUp 1s ease-out 2s both;">
-        <h2>Continuous Professional Development</h2>
-        <p style="text-align: center; color: var(--neon-green); font-size: 1.3em; margin-bottom: 40px;">
-            Total CPD Hours: 18 / Target: 30+ hours
+      <div class="card">
+        <h4>Core Values</h4>
+        <ul>
+          <li>Honesty, Integrity & Authenticity</li>
+          <li>Compassion, Kindness & Empathy</li>
+          <li>Courage & Professional Resilience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3>Work Examples</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Professional Portfolio Website</h4>
+        <p>
+          Designed and deployed a personal IT portfolio using GitHub Pages and HTML.
+          Demonstrates structured content design, version control, and professional digital presence.
         </p>
-        
-        <div class="timeline">
-            <div class="timeline-item">
-                <h3>Portfolio Development & Web Technologies</h3>
-                <p style="color: var(--neon-orange); font-weight: bold;">⏱️ 6 Hours | 📅 Jan 15-17, 2026</p>
-                <p>Built complete portfolio from scratch using HTML/CSS, implemented dark theme, animations, and cyberpunk aesthetics. Learned GitHub Pages deployment and version control.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <h3>Technical Documentation Practice</h3>
-                <p style="color: var(--neon-orange); font-weight: bold;">⏱️ 4 Hours | 📅 Jan 10-14, 2026</p>
-                <p>Practiced annotating technical blogs, creating structured reading logs, and generating concise headlines from complex texts – skills directly transferable to code documentation.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <h3>Python Programming Refinement</h3>
-                <p style="color: var(--neon-orange); font-weight: bold;">⏱️ 5 Hours | 📅 Jan 8-12, 2026</p>
-                <p>Self-study Python fundamentals through university coursework and online resources. Focused on data structures and basic automation concepts.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <h3>Book Blogging & Content Strategy</h3>
-                <p style="color: var(--neon-orange); font-weight: bold;">⏱️ 3 Hours | 📅 Jan 5-7, 2026</p>
-                <p>Refined content creation process for technical and non-technical audiences. Practiced creating engaging headlines and structured summaries.</p>
-            </div>
-            
-            <div class="timeline-item">
-                <h3>Future Learning Plan</h3>
-                <p style="color: var(--neon-green);"><strong>Planned:</strong> JavaScript (8hrs), React Basics (5hrs), Health Tech Webinars (4hrs), Advanced Python (8hrs)</p>
-            </div>
-        </div>
-    </section>
+      </div>
 
-    <!-- FOOTER -->
-    <footer style="animation: fadeInUp 1s ease-out 2.5s both;">
-        <p>&copy; 2026 Iguosa Aghahowa | Built with pure HTML/CSS | Cyberpunk Portfolio Design</p>
-        <p>Contact: Iguosaaghahowa@yahoo.com | 07495072722 | NHS HCA → IT Professional</p>
-    </footer>
+      <div class="card">
+        <h4>Academic Reading & Blogging</h4>
+        <p>
+          Maintained reading logs and blogs to critically evaluate texts, improving written communication
+          and digital content organization.
+        </p>
+      </div>
 
-    <!-- JAVASCRIPT -->
-    <script>
-        // ===== PARTICLE SYSTEM =====
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+      <div class="card">
+        <h4>Text Annotation & Headlines</h4>
+        <p>
+          Strengthened attention to detail and analytical thinking by annotating academic material
+          and creating professional summaries and headlines.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        const particles = [];
-        const particleCount = 100;
+  <!-- LEARNING LOG -->
+  <section id="learning">
+    <h3>Learning Log (CPD)</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>HTML & Web Development</h4>
+        <p><strong>Hours:</strong> 6</p>
+        <p>
+          Learned semantic structure, accessibility principles, and layout design for professional websites.
+        </p>
+      </div>
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.5;
-                this.vy = (Math.random() - 0.5) * 0.5;
-                this.size = Math.random() * 2;
-            }
+      <div class="card">
+        <h4>GitHub & Version Control</h4>
+        <p><strong>Hours:</strong> 5</p>
+        <p>
+          Created repositories, managed commits, and deployed a live website using GitHub Pages.
+        </p>
+      </div>
 
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
+      <div class="card">
+        <h4>IT Career Research</h4>
+        <p><strong>Hours:</strong> 4</p>
+        <p>
+          Explored IT support and development career paths and aligned skills with employer expectations.
+        </p>
+      </div>
 
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
+      <div class="card">
+        <h4>Transferable Skills Reflection</h4>
+        <p><strong>Hours:</strong> 3</p>
+        <p>
+          Connected healthcare experience with IT roles, focusing on user support, teamwork, and reliability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-            draw() {
-                ctx.fillStyle = `rgba(0, 243, 255, ${this.size * 0.5})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h3>Contact Information</h3>
+    <p><strong>Name:</strong> Iguosa Aghahowa</p>
+    <p><strong>Email:</strong> <a href="mailto:Iguosaaghahowa@yahoo.com">Iguosaaghahowa@yahoo.com</a></p>
+    <p><strong>Phone:</strong> 07495 072722</p>
+    <p><strong>Career Goal:</strong> Transitioning into the IT industry from healthcare</p>
+  </section>
+
+  <footer>
+    © 2026 Iguosa Aghahowa | Professional IT Portfolio | Powered by GitHub Pages
+  </footer>
+
+  <script>
+    // SCROLL ANIMATION
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("show");
         }
+      });
+    });
+  </script>
 
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
-                particle.update();
-                particle.draw();
-            });
-
-            // Draw connections
-            particles.forEach((p1, i) => {
-                particles.slice(i + 1).forEach(p2 => {
-                    const dx = p1.x - p2.x;
-                    const dy = p1.y - p2.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < 100) {
-                        ctx.strokeStyle = `rgba(0, 243, 255, ${0.1 * (1 - distance / 100)})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(p1.x, p1.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                });
-            });
-
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // ===== CUSTOM CURSOR =====
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-
-        let mouseX = 0, mouseY = 0;
-        let followerX = 0, followerY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-        });
-
-        function animateCursor() {
-            followerX += (mouseX - followerX) * 0.1;
-            followerY += (mouseY - followerY) * 0.1;
-
-            cursor.style.left = mouseX - 10 + 'px';
-            cursor.style.top = mouseY - 10 + 'px';
-            cursorFollower.style.left = followerX - 20 + 'px';
-            cursorFollower.style.top = followerY - 20 + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // ===== SCROLL ANIMATIONS =====
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate skill bars
-                    const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach((bar, index) => {
-                        setTimeout(() => {
-                            bar.style.width = bar.getAttribute('data-width');
-                        }, index * 200);
-                    });
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(document.querySelector('.skills-grid'));
-
-        // ===== NAVIGATION =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
