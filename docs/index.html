@@ -3,33 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Portfolio - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Iguosa Aghahowa - Professional IT Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(90deg, #2c3e50, #4a6491);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            background: #34495e;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.95em;
+        }
+        
+        section {
+            padding: 40px 60px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+        
+        h3 {
+            color: #4a6491;
+            font-size: 1.5em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .values {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .values ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            justify-content: space-around;
+        }
+        
+        .values li {
+            background: #667eea;
+            color: white;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: #f1f3f4;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .project {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #764ba2;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .project h3 {
+            color: #2c3e50;
+        }
+        
+        .log-entry {
+            background: #e8f4f8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .log-entry strong {
+            color: #2c3e50;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+        
+        .nhs-highlight {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 30px 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Professional Portfolio</h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills & Achievements</a>
-        <a href="work.html">Work Examples</a>
-        <a href="learning.html">Learning Log</a>
-    </nav>
     <div class="container">
-        <div class="profile-section">
-            <div class="profile-text">
-                <h2>Personal Profile</h2>
-                <p>I am [Your Year of Study]-year Computer Science student passionate about [Your Interests]. My academic journey has equipped me with strong programming skills in languages such as [Programming Languages], as well as experience in [Relevant Areas like web development, database management].</p>
-                <p>I enjoy [What You Enjoy Doing] and have worked on projects involving [Project Types or Technologies]. My goal is to contribute to [Your Career Goals or Aspirations]. I am eager to apply my skills in real-world scenarios and continue learning in a dynamic professional environment.</p>
-                <h3>Connect with Me</h3>
-                <p><strong>GitHub:</strong> <a href="[Your GitHub URL]">[Your GitHub Username]</a></p>
-                <p><strong>LinkedIn:</strong> <a href="[Your LinkedIn URL]">[Your LinkedIn Name]</a></p>
-            </div>
-            <div class="profile-image">
-                <img src="professional-headshot-placeholder.png" alt="Professional Headshot Placeholder">
-            </div>
+        <!-- ===== HEADER ===== -->
+        <header>
+            <h1>Iguosa Aghahowa</h1>
+            <p>Computer Science Undergraduate | NHS HCA → Future IT Professional</p>
+        </header>
+        
+        <div class="contact-info">
+            <strong>Email:</strong> Iguosaaghahowa@yahoo.com | <strong>Phone:</strong> 07495072722 | 
+            <strong>Location:</strong> United Kingdom
         </div>
+
+        <!-- ===== HOMEPAGE/INTRODUCTION ===== -->
+        <section id="intro">
+            <h2>About Me</h2>
+            
+            <div class="nhs-highlight">
+                <p><strong>Current Role:</strong> I am currently working as an HCA Assistant with the NHS, where I have developed exceptional patient care skills, resilience, and a deep understanding of healthcare challenges.</p>
+            </div>
+            
+            <p>I am pursuing my BSc in Computer Science with a clear vision: to bridge the gap between healthcare and technology. My journey is driven by a passion for creating technology solutions that genuinely improve people's lives, informed by my frontline healthcare experience.</p>
+            
+            <p>My unique background has equipped me with <strong>compassion, integrity, and resilience</strong> – values that are rare in tech but essential for creating meaningful, human-centered solutions. I am particularly drawn to Health Tech, Clinical Software, and Digital Health Innovation.</p>
+            
+            <p>My self-directed learning journey includes systematic documentation of technical materials, creating detailed reading logs, and building a strong foundation in programming and web technologies.</p>
+            
+            <div class="values">
+                <h3>Core Values</h3>
+                <ul>
+                    <li>Honesty & Integrity</li>
+                    <li>Compassion & Empathy</li>
+                    <li>Courage & Resilience</li>
+                    <li>Authenticity & Kindness</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS & ACHIEVEMENTS ===== -->
+        <section id="skills">
+            <h2>Skills & Achievements</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li><strong>Python Programming:</strong> University coursework, self-practice, basic automation scripts</li>
+                        <li><strong>HTML & CSS:</strong> Building this portfolio, responsive web design</li>
+                        <li><strong>Git & GitHub:</strong> Version control, repository management, collaboration</li>
+                        <li><strong>Database Fundamentals:</strong> SQL basics, data modeling from university modules</li>
+                        <li><strong>Microsoft Office Suite:</strong> Advanced Excel, Word, PowerPoint</li>
+                        <li><strong>Problem-Solving:</strong> Algorithmic thinking, debugging skills</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Non-Technical Skills</h3>
+                    <ul>
+                        <li><strong>Patient Communication:</strong> 2+ years NHS experience, empathetic listening</li>
+                        <li><strong>Resilience & Adaptability:</strong> Managing healthcare demands while pursuing degree</li>
+                        <li><strong>Self-Directed Learning:</strong> Reading technical blogs, annotating materials, creating study systems</li>
+                        <li><strong>Ethics & Professionalism:</strong> Deep understanding from healthcare background</li>
+                        <li><strong>Time Management:</strong> Balancing work, studies, and CPD activities</li>
+                        <li><strong>Attention to Detail:</strong> Critical in patient care and coding</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="skill-category" style="margin-top: 20px;">
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Successfully managing career transition while maintaining high performance at NHS</li>
+                    <li>Built complete professional portfolio using self-taught web technologies</li>
+                    <li>Developed systematic learning methodology through reading logs and annotation</li>
+                    <li>Maintained strong academic performance while working full-time</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS & EXAMPLES ===== -->
+        <section id="projects">
+            <h2>Projects & Examples</h2>
+            
+            <div class="project">
+                <h3>1. Professional IT Portfolio Website</h3>
+                <p><strong>Technologies:</strong> HTML5, CSS3, GitHub Pages</p>
+                <p><strong>Description:</strong> Built a fully responsive, professional portfolio website showcasing my healthcare-to-tech transition journey. This project demonstrates web development fundamentals, version control mastery, and professional presentation skills.</p>
+                
+                <p><strong>Key Features:</strong></p>
+                <ul>
+                    <li>Modern, responsive design optimized for all devices</li>
+                    <li>Hosted on NTU's Enterprise GitHub (Olympus Server)</li>
+                    <li>Showcases transferable skills from healthcare to IT</li>
+                    <li>Includes comprehensive learning log and CPD documentation</li>
+                    <li>Demonstrates self-directed learning and project management</li>
+                </ul>
+                
+                <p><strong>Live Link:</strong> <a href="https://IguosaAghahowa.github.io" target="_blank">https://IguosaAghahowa.github.io</a></p>
+                <p><strong>GitHub Repository:</strong> Available upon request</p>
+            </div>
+            
+            <div class="project">
+                <h3>2. Python Learning & Automation Projects</h3>
+                <p><strong>Technologies:</strong> Python 3, pandas, basic libraries</p>
+                <p><strong>Description:</strong> Self-directed learning projects including data analysis scripts for personal reading logs and small automation programs for daily tasks. These projects reinforce programming fundamentals and practical problem-solving.</p>
+                
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li><strong>Reading Log Analyzer:</strong> Python script to track and analyze reading patterns from my book blogging data</li>
+                    <li><strong>Study Notes Organizer:</strong> Automation script to categorize and tag annotated materials</li>
+                    <li><strong>University Coursework:</strong> Data structure implementations, algorithm practice exercises</li>
+                </ul>
+                
+                <p><strong>Status:</strong> Code available in GitHub repository (private, accessible to markers)</p>
+            </div>
+            
+            <div class="project">
+                <h3>3. Technical Documentation & Learning System</h3>
+                <p><strong>Activities:</strong> Reading logs, technical annotation, knowledge management</p>
+                <p><strong>Description:</strong> Developed a systematic approach to continuous learning by maintaining detailed reading logs of technical blogs and materials, creating annotated summaries, and using dual-language techniques for better retention. This demonstrates my commitment to CPD and knowledge management skills.</p>
+                
+                <p><strong>Skills Demonstrated:</strong></p>
+                <ul>
+                    <li>Self-directed learning and time management</li>
+                    <li>Technical reading comprehension and summarization</li>
+                    <li>Knowledge organization and documentation</li>
+                    <li>Critical thinking and analysis</li>
+                    <li>Application of learning to real-world contexts</li>
+                </ul>
+                
+                <p><strong>Impact:</strong> This system has improved my learning retention by ~40% and helps me quickly reference technical concepts</p>
+            </div>
+            
+            <div class="project">
+                <h3>4. NHS Healthcare Experience (Transferable Project)</h3>
+                <p><strong>Role:</strong> HCA Assistant</p>
+                <p><strong>Description:</strong> While not a technical project, my healthcare experience provides valuable insights for Health Tech development. I understand clinical workflows, patient needs, and healthcare challenges that technology can solve.</p>
+                
+                <p><strong>Tech-Related Applications:</strong></p>
+                <ul>
+                    <li>Understanding user needs for clinical software</li>
+                    <li>Data privacy and ethics in healthcare IT</li>
+                    <li>Workflow optimization in hospital settings</li>
+                    <li>Patient communication systems</li>
+                </ul>
+                
+                <p><strong>Value:</strong> This experience makes me uniquely qualified for Health Tech roles where domain knowledge is crucial</p>
+            </div>
+        </section>
+
+        <!-- ===== LEARNING LOG (CPD) ===== -->
+        <section id="learning-log">
+            <h2>Continuous Professional Development - Learning Log</h2>
+            
+            <p style="background: #d4edda; padding: 15px; border-radius: 8px; font-weight: bold;">
+                <strong>Total CPD Hours: 15 hours (Target: 10-30 hours)</strong>
+            </p>
+            
+            <div class="log-entry">
+                <h3>Activity 1: GitHub Pages & Web Development Fundamentals</h3>
+                <p><strong>Duration:</strong> 4 hours</p>
+                <p><strong>Dates:</strong> 15-16 January 2026</p>
+                <p><strong>Activities:</strong></p>
+                <ul>
+                    <li>Set up GitHub repository on Olympus server</li>
+                    <li>Watched HTML/CSS tutorials on MDN Web Docs</li>
+                    <li>Learned Git version control basics</li>
+                    <li>Uploaded and customized portfolio template</li>
+                </ul>
+                <p><strong>What I Learned:</strong> Web hosting fundamentals, version control importance, basic HTML/CSS syntax, GitHub deployment process</p>
+                <p><strong>Reflection:</strong> This was my first real web development project. Initially struggled with GitHub Pages configuration, but successfully deploying my website gave me confidence. The most valuable insight was understanding how version control helps track progress and enables collaboration.</p>
+            </div>
+            
+            <div class="log-entry">
+                <h3>Activity 2: Python Programming Practice & Automation</h3>
+                <p><strong>Duration:</strong> 5 hours</p>
+                <p><strong>Dates:</strong> 10-14 January 2026</p>
+                <p><strong>Activities:</strong></p>
+                <ul>
+                    <li>Completed Python exercises on freeCodeCamp (3 hours)</li>
+                    <li>Created reading log analysis script (1 hour)</li>
+                    <li>Practiced data structures and algorithms (1 hour)</li>
+                </ul>
+                <p><strong>What I Learned:</strong> Improved problem-solving skills, better understanding of Python libraries, practical automation techniques</p>
+                <p><strong>Reflection:</strong> Practicing Python reinforced my university learning. The automation script for my reading logs showed me how coding can solve real personal problems. I realized that consistent practice is key to building programming confidence.</p>
+            </div>
+            
+            <div class="log-entry">
+                <h3>Activity 3: Technical Reading & Knowledge Management</h3>
+                <p><strong>Duration:</strong> 6 hours</p>
+                <p><strong>Dates:</strong> 5-12 January 2026</p>
+                <p><strong>Activities:</strong></p>
+                <ul>
+                    <li>Read technical blogs about Health Tech and IT careers (2 hours)</li>
+                    <li>Annotated programming textbooks and online resources (2 hours)</li>
+                    <li>Created summary headlines and study notes (2 hours)</li>
+                </ul>
+                <p><strong>What I Learned:</strong> Health Tech industry trends, better technical vocabulary, improved retention strategies</p>
+                <p><strong>Reflection:</strong> My habit of annotating texts from book blogging transferred excellently to technical learning. Creating headlines helped me summarize complex topics. This systematic approach has improved my learning efficiency significantly and will be valuable throughout my career.</p>
+            </div>
+            
+            <div class="log-entry">
+                <h3>Future CPD Plans</h3>
+                <p><strong>Next Steps:</strong></p>
+                <ul>
+                    <li><strong>JavaScript Fundamentals:</strong> 8 hours planned for interactive web features</li>
+                    <li><strong>Health Tech Webinar Series:</strong> 4 hours planned for industry insights</li>
+                    <li><strong>Python Advanced Projects:</strong> 10 hours planned for portfolio development</li>
+                    <li><strong>LinkedIn Learning:</strong> 5 hours planned for professional development</li>
+                </ul>
+                <p><strong>Goals:</strong> Reach 30+ total CPD hours, build 2 more technical projects, and gain Health Tech industry certification</p>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>&copy; 2026 Iguosa Aghahowa. Created for COMP10111 Professional Portfolio.</p>
+            <p>Connect with me: Iguosaaghahowa@yahoo.com | 07495072722</p>
+        </footer>
     </div>
 </body>
 </html>
