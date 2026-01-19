@@ -1,362 +1,433 @@
-# Iguosa Aghahowa – Professional Dark Animated React Portfolio (Assignment-Ready)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Iguosa Aghahowa | IT Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
-> **Purpose:** This portfolio is fully aligned with COMP10111 Professional Portfolio assessment criteria (MLO4, MLO5, MLO6). It demonstrates professional communication, IT career focus, CPD reflection (20+ hours), and deployability via GitHub Pages.
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
----
-
-## 1) Tech Stack
-- **React + Vite** (modern, fast)
-- **Tailwind CSS** (dark theme, professional UI)
-- **Framer Motion** (smooth animations)
-- **Lucide Icons** (clean icon set)
-
----
-
-## 2) Setup (Run Locally)
-```bash
-npm create vite@latest iguosa-portfolio
-cd iguosa-portfolio
-npm install
-npm install framer-motion lucide-react
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init -p
-```
-
-### `tailwind.config.js`
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  theme: {
-    extend: {
-      colors: {
-        neon: "#00f5ff",
-        darkbg: "#050505",
-        darkcard: "#0f172a"
-      }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
-  },
-  plugins: [],
-}
-```
 
-### `src/main.jsx`
-```jsx
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App'
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #0f0f0f, #1a1a1a, #0c0c0c);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
-```
+    /* FLOATING BACKGROUND */
+    .bg-orbs span {
+      position: fixed;
+      width: 250px;
+      height: 250px;
+      background: rgba(0, 245, 255, 0.08);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+      z-index: -1;
+    }
 
-### `src/index.css`
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+    .bg-orbs span:nth-child(1) { top: 10%; left: 10%; animation-duration: 25s; }
+    .bg-orbs span:nth-child(2) { top: 60%; left: 70%; animation-duration: 30s; }
+    .bg-orbs span:nth-child(3) { top: 30%; left: 40%; animation-duration: 20s; }
 
-html { scroll-behavior: smooth; }
-```
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-100px) translateX(100px); }
+      100% { transform: translateY(0) translateX(0); }
+    }
 
----
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      z-index: 1000;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      flex-wrap: wrap;
+    }
 
-## 3) FINAL `src/App.jsx` (Fully Animated, Assignment Aligned)
+    nav h1 {
+      font-size: 20px;
+      color: #00f5ff;
+      letter-spacing: 1px;
+    }
 
-```jsx
-import { motion } from "framer-motion";
-import { Mail, Phone, Github, Linkedin } from "lucide-react";
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
+    nav ul li a {
+      text-decoration: none;
+      color: #e0e0e0;
+      font-weight: 500;
+      position: relative;
+      transition: 0.3s;
+      font-size: 14px;
+    }
 
-const Section = ({ id, title, children }) => (
-  <motion.section
-    id={id}
-    variants={fadeUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="py-24 px-6 md:px-20"
-  >
-    <h2 className="text-3xl md:text-4xl font-bold text-neon mb-10 border-l-4 border-neon pl-4">
-      {title}
-    </h2>
-    {children}
-  </motion.section>
-);
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00f5ff;
+      left: 0;
+      bottom: -5px;
+      transition: 0.3s;
+    }
 
-const Card = ({ title, children }) => (
-  <motion.div
-    whileHover={{ scale: 1.05, y: -8 }}
-    transition={{ type: "spring", stiffness: 200 }}
-    className="bg-darkcard/60 backdrop-blur-xl p-6 rounded-2xl shadow-xl border border-neon/20"
-  >
-    <h3 className="text-xl font-semibold text-neon mb-3">{title}</h3>
-    <div className="text-gray-300 text-sm leading-relaxed">{children}</div>
-  </motion.div>
-);
+    nav ul li a:hover::after {
+      width: 100%;
+    }
 
-export default function App() {
-  return (
-    <div className="bg-gradient-to-br from-black via-slate-900 to-black min-h-screen text-gray-200">
-      {/* NAVBAR */}
-      <nav className="fixed w-full z-50 bg-black/80 backdrop-blur-md px-8 py-4 flex justify-between items-center shadow-lg">
-        <span className="text-neon font-bold text-lg">Iguosa Aghahowa</span>
-        <div className="space-x-6 text-sm">
-          {[
-            "home",
-            "about",
-            "skills",
-            "experience",
-            "projects",
-            "learning",
-            "contact",
-          ].map((s) => (
-            <a
-              key={s}
-              href={`#${s}`}
-              className="hover:text-neon transition"
-            >
-              {s.charAt(0).toUpperCase() + s.slice(1)}
-            </a>
-          ))}
-        </div>
-      </nav>
+    nav ul li a:hover {
+      color: #00f5ff;
+      text-shadow: 0 0 5px #00f5ff;
+    }
 
-      {/* HERO */}
-      <motion.section
-        id="home"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="h-screen flex flex-col justify-center items-center text-center px-6"
-      >
-        <motion.h1
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-6xl font-bold text-neon mb-6"
-        >
-          I'm Iguosa, an Aspiring IT Professional
-        </motion.h1>
-        <p className="max-w-3xl text-gray-300 leading-relaxed">
-          Undergraduate BSc Computer Science student with professional experience
-          in structured operational environments, now transitioning into the IT
-          industry. I am passionate about building reliable, user-focused digital
-          systems and continuously developing my technical and professional
-          skillset through independent learning and CPD.
-        </p>
-      </motion.section>
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: radial-gradient(circle at top, #101820, #050505);
+    }
 
-      {/* ABOUT */}
-      <Section id="about" title="About Me">
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card title="Who I Am">
-            I am an undergraduate Computer Science student and a professional
-            support assistant working within the NHS. My long-term goal is to
-            establish a career in Information Technology, focusing on digital
-            systems, problem-solving, and user-centered solutions. I bring strong
-            values of honesty, integrity, empathy, and resilience into every
-            professional and academic environment.
-          </Card>
+    .hero h2 {
+      font-size: clamp(24px, 5vw, 48px);
+      margin-bottom: 20px;
+      color: #00f5ff;
+      animation: glow 2s infinite alternate;
+    }
 
-          <Card title="Career Motivation">
-            I am pursuing a career in IT because I enjoy understanding how
-            systems work, solving technical problems, and creating digital tools
-            that improve efficiency and accessibility. I am particularly
-            interested in entry-level IT roles such as IT Support, Web
-            Development, and Junior Technical Roles, where I can grow through
-            hands-on experience and continuous learning.
-          </Card>
-        </div>
-      </Section>
+    .hero h2 span {
+      color: white;
+    }
 
-      {/* SKILLS */}
-      <Section id="skills" title="Skills & Achievements">
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card title="Technical Skills">
-            <ul className="list-disc ml-5">
-              <li>HTML, CSS, and basic JavaScript for web development</li>
-              <li>Python fundamentals and logical problem-solving</li>
-              <li>Git & GitHub for version control and portfolio deployment</li>
-              <li>Understanding of IT systems, networks, and digital workflows</li>
-              <li>Documentation and digital content structuring</li>
-            </ul>
-          </Card>
+    .hero p {
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: clamp(14px, 1.8vw, 18px);
+      color: #cccccc;
+      animation: fadeUp 2s ease;
+    }
 
-          <Card title="Professional Skills">
-            <ul className="list-disc ml-5">
-              <li>Professional communication and reporting</li>
-              <li>Team collaboration in structured environments</li>
-              <li>Time management and task prioritisation</li>
-              <li>Adaptability in fast-paced professional settings</li>
-              <li>Critical thinking and attention to detail</li>
-            </ul>
-          </Card>
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #00f5ff; }
+      to { text-shadow: 0 0 25px #00f5ff; }
+    }
 
-          <Card title="Core Values">
-            <ul className="list-disc ml-5">
-              <li>Honesty, Integrity, Authenticity</li>
-              <li>Compassion, Kindness, Empathy</li>
-              <li>Courage and Professional Resilience</li>
-            </ul>
-          </Card>
-        </div>
-      </Section>
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-      {/* EXPERIENCE */}
-      <Section id="experience" title="Work Experience">
-        <Card title="Professional Support Assistant — NHS">
-          <p>
-            Working in a high-responsibility professional environment supporting
-            structured digital and operational systems. This role has helped me
-            develop strong communication, documentation accuracy, teamwork, and
-            problem-solving skills that are highly transferable to IT support
-            and technical roles.
-          </p>
-          <ul className="list-disc ml-5 mt-3">
-            <li>Accurate digital record handling and reporting</li>
-            <li>Professional communication across multidisciplinary teams</li>
-            <li>Following structured workflows and system protocols</li>
-            <li>Problem resolution in time-sensitive environments</li>
-          </ul>
-        </Card>
-      </Section>
+    /* SECTIONS */
+    section {
+      padding: 80px 8%;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 1s ease;
+    }
 
-      {/* PROJECTS */}
-      <Section id="projects" title="Projects & Examples">
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card title="Professional Portfolio Website">
-            Designed and deployed a personal portfolio using GitHub Pages and
-            React. This project demonstrates my ability to manage version
-            control, structure digital content professionally, and deploy a
-            responsive, user-focused website.
-          </Card>
+    section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-          <Card title="Reading Logs & Book Blogging">
-            Maintained structured reading logs and digital blogs to analyse and
-            summarise academic and professional texts. This improved my written
-            communication, digital literacy, and ability to present information
-            clearly.
-          </Card>
+    section h3 {
+      font-size: clamp(20px, 3vw, 32px);
+      margin-bottom: 30px;
+      color: #00f5ff;
+      border-left: 4px solid #00f5ff;
+      padding-left: 15px;
+    }
 
-          <Card title="Text Annotation & Headline Creation">
-            Developed critical thinking skills by annotating complex texts and
-            producing concise, meaningful headlines. This activity strengthened
-            my attention to detail and professional documentation ability.
-          </Card>
-        </div>
-      </Section>
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
 
-      {/* LEARNING LOG */}
-      <Section id="learning" title="Learning Log (CPD – 23 Hours)">
-        <div className="grid md:grid-cols-2 gap-8">
-          <Card title="HTML & Web Fundamentals — 6 Hours">
-            Learned how to structure accessible, semantic web pages and apply
-            responsive design principles. This supports my goal of working in
-            entry-level IT and web-based technical roles.
-          </Card>
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 20px;
+      transition: 0.4s;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
 
-          <Card title="GitHub & Version Control — 5 Hours">
-            Practiced creating repositories, managing commits, and deploying
-            websites using GitHub Pages. This reflects my understanding of
-            professional development workflows.
-          </Card>
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(0,245,255,0.15), transparent);
+      transition: 0.5s;
+    }
 
-          <Card title="IT Career Research — 4 Hours">
-            Researched IT Support, Junior Developer, and Technical Assistant
-            roles. Identified key technical and professional skills required by
-            employers and aligned my learning plan accordingly.
-          </Card>
+    .card:hover::before {
+      top: 0;
+      left: 0;
+    }
 
-          <Card title="Professional Communication — 5 Hours">
-            Developed structured writing through blogging, reading logs, and
-            documentation practice, improving clarity and professional tone for
-            technical communication.
-          </Card>
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 0 35px rgba(0, 245, 255, 0.4);
+    }
 
-          <Card title="Transferable Skills Development — 3 Hours">
-            Reflected on applying teamwork, empathy, and problem-solving skills
-            from professional environments into IT service and technical
-            support roles.
-          </Card>
-        </div>
-      </Section>
+    .card h4 {
+      margin-bottom: 15px;
+      color: #00f5ff;
+    }
 
-      {/* CONTACT */}
-      <Section id="contact" title="Contact">
-        <div className="flex flex-col md:flex-row gap-8 justify-center text-center">
-          <Card title="Get in Touch">
-            <p className="flex items-center justify-center gap-2">
-              <Mail size={16} /> Iguosaaghahowa@yahoo.com
-            </p>
-            <p className="flex items-center justify-center gap-2 mt-2">
-              <Phone size={16} /> 07495 072722
-            </p>
-            <p className="mt-4">Open to entry-level IT and technical roles</p>
-            <div className="flex justify-center gap-4 mt-4">
-              <Github />
-              <Linkedin />
-            </div>
-          </Card>
-        </div>
-      </Section>
+    .card p, .card ul {
+      font-size: clamp(12px, 1.2vw, 16px);
+      line-height: 1.7;
+      color: #dddddd;
+    }
 
-      <footer className="text-center py-6 text-gray-500 bg-black">
-        © 2026 Iguosa Aghahowa | Professional IT Portfolio | GitHub Pages Ready
-      </footer>
+    .card ul {
+      padding-left: 20px;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      background: linear-gradient(180deg, #050505, #101820);
+      padding: 80px 10%;
+    }
+
+    .contact p {
+      margin: 10px 0;
+      font-size: clamp(14px, 1.5vw, 16px);
+    }
+
+    .contact a {
+      color: #00f5ff;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* MEDIA QUERIES */
+    @media(max-width: 768px) {
+      nav ul { gap: 12px; justify-content: center; }
+      nav { padding: 15px 20px; }
+      .hero { padding: 80px 15px 40px; }
+      section { padding: 60px 6%; }
+    }
+
+    @media(max-width: 480px) {
+      nav h1 { font-size: 18px; }
+      .hero h2 { font-size: 28px; }
+      .hero p { font-size: 14px; }
+      section h3 { font-size: 20px; }
+      .card p, .card ul { font-size: 13px; }
+      section { padding: 50px 5%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- FLOATING BACKGROUND -->
+  <div class="bg-orbs">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav>
+    <h1>Iguosa Aghahowa</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Work Examples</a></li>
+      <li><a href="#learning">Learning Log</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <div class="hero" id="home">
+    <div>
+      <h2>I'm <span>Iguosa Aghahowa</span>, a Future IT Professional</h2>
+      <p>
+        I am an undergraduate Computer Science student and NHS Healthcare Assistant with a strong commitment to
+        personal growth, professional integrity, and lifelong learning. My long-term goal is to transition into
+        the IT industry, where I can apply technical knowledge, problem-solving abilities, and compassionate values
+        to create reliable and user-focused digital solutions. I believe in honesty, resilience, and empathy as
+        the foundation for both professional excellence and meaningful teamwork.
+      </p>
     </div>
-  );
-}
-```
+  </div>
 
----
+  <!-- SKILLS -->
+  <section id="skills">
+    <h3>Skills & Achievements</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Technical Skills</h4>
+        <ul>
+          <li>HTML & CSS fundamentals for structured and accessible websites</li>
+          <li>Basic programming concepts using Python</li>
+          <li>GitHub and version control for portfolio deployment</li>
+          <li>IT infrastructure and system fundamentals</li>
+          <li>Logical problem-solving through academic projects</li>
+        </ul>
+      </div>
 
-## 4) Deploy to GitHub Pages (Assignment Requirement)
+      <div class="card">
+        <h4>Professional Skills</h4>
+        <ul>
+          <li>Communication through blogging and documentation</li>
+          <li>Critical thinking via text annotation</li>
+          <li>Time management in healthcare and academic settings</li>
+          <li>Team collaboration within NHS multidisciplinary teams</li>
+          <li>Adaptability in high-pressure environments</li>
+        </ul>
+      </div>
 
-```bash
-npm run build
-```
+      <div class="card">
+        <h4>Core Values</h4>
+        <ul>
+          <li>Honesty, Integrity & Authenticity</li>
+          <li>Compassion, Kindness & Empathy</li>
+          <li>Courage & Professional Resilience</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-Install deploy tool:
-```bash
-npm install -D gh-pages
-```
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3>Work Examples</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>Professional Portfolio Website</h4>
+        <p>
+          Designed and deployed a personal IT portfolio using GitHub Pages and HTML.
+          Demonstrates structured content design, version control, and professional digital presence.
+        </p>
+      </div>
 
-### `package.json` add:
-```json
-"homepage": "https://YOUR_GITHUB_USERNAME.github.io/igUosa-portfolio",
-"scripts": {
-  "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist"
-}
-```
+      <div class="card">
+        <h4>Academic Reading & Blogging</h4>
+        <p>
+          Maintained reading logs and blogs to critically evaluate texts, improving written communication
+          and digital content organization.
+        </p>
+      </div>
 
-Then:
-```bash
-npm run deploy
-```
+      <div class="card">
+        <h4>Text Annotation & Headlines</h4>
+        <p>
+          Strengthened attention to detail and analytical thinking by annotating academic material
+          and creating professional summaries and headlines.
+        </p>
+      </div>
+    </div>
+  </section>
 
----
+  <!-- LEARNING LOG -->
+  <section id="learning">
+    <h3>Learning Log (CPD)</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4>HTML & Web Development</h4>
+        <p><strong>Hours:</strong> 6</p>
+        <p>
+          Learned semantic structure, accessibility principles, and layout design for professional websites.
+        </p>
+      </div>
 
-## 5) Why This Scores High (MLO4 / MLO5 / MLO6)
-- **Professional language & structure** (MLO4)
-- **Clear IT career alignment & skill evidence** (MLO5)
-- **23 hours CPD with reflection & future focus** (MLO6)
-- **Deployed via GitHub Pages** (technical competence evidence)
+      <div class="card">
+        <h4>GitHub & Version Control</h4>
+        <p><strong>Hours:</strong> 5</p>
+        <p>
+          Created repositories, managed commits, and deployed a live website using GitHub Pages.
+        </p>
+      </div>
 
----
+      <div class="card">
+        <h4>IT Career Research</h4>
+        <p><strong>Hours:</strong> 4</p>
+        <p>
+          Explored IT support and development career paths and aligned skills with employer expectations.
+        </p>
+      </div>
 
-If you want, I can also generate:
-- ✅ **CPD Log PDF (Harvard-style, submission-ready)**
-- ✅ **GenAI Acknowledgement Form (NTU format)**
-- ✅ **Portfolio-to-PDF export guide**
+      <div class="card">
+        <h4>Transferable Skills Reflection</h4>
+        <p><strong>Hours:</strong> 3</p>
+        <p>
+          Connected healthcare experience with IT roles, focusing on user support, teamwork, and reliability.
+        </p>
+      </div>
+    </div>
+  </section>
 
-Bas bolo: **“CPD log + PDF + acknowledgement bana do”** 🚀
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h3>Contact Information</h3>
+    <p><strong>Name:</strong> Iguosa Aghahowa</p>
+    <p><strong>Email:</strong> <a href="mailto:Iguosaaghahowa@yahoo.com">Iguosaaghahowa@yahoo.com</a></p>
+    <p><strong>Phone:</strong> 07495 072722</p>
+    <p><strong>Career Goal:</strong> Transitioning into the IT industry from healthcare</p>
+  </section>
+
+  <footer>
+    © 2026 Iguosa Aghahowa | Professional IT Portfolio | Powered by GitHub Pages
+  </footer>
+
+  <script>
+    // SCROLL ANIMATION
+    const sections = document.querySelectorAll("section");
+
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if (top < trigger) {
+          section.classList.add("show");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
