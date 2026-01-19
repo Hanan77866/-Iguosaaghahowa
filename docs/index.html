@@ -3,152 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iguosa Aghahowa | Tech Portfolio</title>
+    <title>Projects | Iguosa Aghahowa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="bg-particle"></div>
-        <div class="bg-particle"></div>
-        <div class="bg-particle"></div>
-    </div>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <canvas id="particles"></canvas>
 
-    <!-- Navigation -->
     <nav class="modern-nav">
         <div class="nav-brand">Iguosa Aghahowa</div>
         <ul class="nav-links">
-            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="index.html" class="nav-link">Home</a></li>
             <li><a href="skills.html" class="nav-link">Skills</a></li>
-            <li><a href="work.html" class="nav-link">Projects</a></li>
+            <li><a href="work.html" class="nav-link active">Projects</a></li>
             <li><a href="learning.html" class="nav-link">Learning</a></li>
         </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="text-gradient">Iguosa Aghahowa</span>
-            </h1>
-            <div class="hero-subtitle">
-                <span class="typewriter">HCA Assistant @ NHS → Future IT Professional</span>
-            </div>
-            <p class="hero-description">
-                Computer Science Undergraduate | Compassionate Tech Innovator
-            </p>
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">CPD Hours</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4</div>
-                    <div class="stat-label">Projects</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">BSc</div>
-                    <div class="stat-label">CS Student</div>
-                </div>
-            </div>
-            <div class="hero-buttons">
-                <a href="work.html" class="btn-primary">View Projects</a>
-                <a href="learning.html" class="btn-secondary">Learning Journey</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
     <section class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-content">
-                    <p class="about-text">
-                        I am a dedicated Computer Science undergraduate currently working as an HCA Assistant with the NHS, while actively upgrading my career into the IT sector. My unique background in healthcare has equipped me with exceptional interpersonal skills, resilience, and a deep understanding of how technology can improve people's lives.
-                    </p>
-                    <p class="about-text">
-                        My journey bridges healthcare and technology, driven by a passion for creating solutions that make a real difference. I bring compassion, integrity, and resilience to every technical challenge.
-                    </p>
-                </div>
-                
-                <div class="about-visual">
-                    <div class="value-badges">
-                        <span class="badge">Honesty</span>
-                        <span class="badge">Integrity</span>
-                        <span class="badge">Authenticity</span>
-                        <span class="badge">Compassion</span>
-                        <span class="badge">Kindness</span>
-                        <span class="badge">Empathy</span>
-                        <span class="badge">Courage</span>
-                        <span class="badge">Resilience</span>
+        <h2>Featured Projects</h2>
+        
+        <div class="projects-grid">
+            <div class="project-card featured">
+                <div class="project-banner">🏆 Featured</div>
+                <div class="project-header">
+                    <h3>Professional IT Portfolio Website</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">GitHub Pages</span>
+                        <span class="tech-badge">Dark Theme</span>
                     </div>
+                </div>
+                <div class="project-content">
+                    <p>Built a complete professional portfolio website from scratch to showcase my transition from healthcare to IT. Features modern dark theme, smooth animations, and responsive design.</p>
+                    <ul>
+                        <li>Responsive design optimized for all devices</li>
+                        <li>Hosted on NTU's Enterprise GitHub (Olympus)</li>
+                        <li>Showcases transferable skills from healthcare</li>
+                        <li>Includes comprehensive learning log</li>
+                    </ul>
+                </div>
+                <div class="project-actions">
+                    <a href="https://IguosaAghahowa.github.io" class="btn-primary" target="_blank">View Live</a>
+                    <a href="https://olympus.ntu.ac.uk/IguosaAghahowa/IguosaAghahowa.github.io" class="btn-secondary" target="_blank">View Code</a>
                 </div>
             </div>
 
-            <div class="contact-cards">
-                <div class="contact-card">
-                    <div class="card-icon">📧</div>
-                    <div class="card-info">
-                        <div class="card-label">Email</div>
-                        <div class="card-value">Iguosaaghahowa@yahoo.com</div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Reading Log Analyzer</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Data Analysis</span>
+                        <span class="tech-badge">Automation</span>
                     </div>
                 </div>
-                <div class="contact-card">
-                    <div class="card-icon">📱</div>
-                    <div class="card-info">
-                        <div class="card-label">Phone</div>
-                        <div class="card-value">07495072722</div>
-                    </div>
+                <div class="project-content">
+                    <p>Python script that analyzes reading log data to track patterns, reading frequency, and genre preferences. Creates visual summaries and generates insights about reading habits.</p>
+                    <ul>
+                        <li>Practical application of programming skills</li>
+                        <li>Combines hobby with technical skills</li>
+                        <li>Demonstrates data analysis capabilities</li>
+                    </ul>
                 </div>
-                <div class="contact-card">
-                    <div class="card-icon">🎓</div>
-                    <div class="card-info">
-                        <div class="card-label">Education</div>
-                        <div class="card-value">BSc Computer Science</div>
-                    </div>
+                <div class="project-actions">
+                    <a href="https://olympus.ntu.ac.uk/IguosaAghahowa/python-projects" class="btn-primary" target="_blank">View Repository</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills Preview -->
-    <section class="section gradient-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Core Skills</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="skills-preview">
-                <div class="skill-item">
-                    <div class="skill-icon">💻</div>
-                    <div class="skill-name">Web Development</div>
-                    <div class="skill-level">HTML, CSS, GitHub Pages</div>
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Technical Documentation System</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Documentation</span>
+                        <span class="tech-badge">Knowledge Management</span>
+                        <span class="tech-badge">Best Practices</span>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon">🐍</div>
-                    <div class="skill-name">Python</div>
-                    <div class="skill-level">Data Analysis, Automation</div>
+                <div class="project-content">
+                    <p>A systematic approach to documenting technical learning through annotated texts, structured notes, and headline creation. Built using my experience in book blogging adapted for technical content.</p>
+                    <ul>
+                        <li>Improved learning efficiency by ~40%</li>
+                        <li>Creates reusable study resources</li>
+                        <li>Demonstrates documentation skills</li>
+                    </ul>
                 </div>
-                <div class="skill-item">
-                    <div class="skill-icon">📚</div>
-                    <div class="skill-name">Documentation</div>
-                    <div class="skill-level">Technical Writing, Blogging</div>
-                </div>
-                <div class="skill-item">
-                    <div class="skill-icon">🤝</div>
-                    <div class="skill-name">Communication</div>
-                    <div class="skill-level">NHS Patient Care Experience</div>
+                <div class="project-actions">
+                    <a href="learning.html" class="btn-secondary">View Details</a>
                 </div>
             </div>
-            
-            <div class="text-center">
-                <a href="skills.html" class="btn-primary">View All Skills</a>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <h3>Dual-Language Learning Framework</h3>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Self-Learning</span>
+                        <span class="tech-badge">Innovation</span>
+                        <span class="tech-badge">Study Methods</span>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <p>Personalized methodology for learning technical concepts using dual-language books and resources. Combines English technical documentation with dual-language reading strategies for enhanced comprehension.</p>
+                    <ul>
+                        <li>Innovative learning approach</li>
+                        <li>Particularly useful for complex concepts</li>
+                        <li>Demonstrates adaptability</li>
+                    </ul>
+                </div>
+                <div class="project-actions">
+                    <span class="btn-secondary">Research Project</span>
+                </div>
             </div>
         </div>
     </section>
