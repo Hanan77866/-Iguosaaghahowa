@@ -18,37 +18,37 @@
     }
 
     body {
-      background: linear-gradient(120deg, #0f0f0f, #1a1a1a, #0c0c0c);
+      background: linear-gradient(120deg, #0c0c0c, #111111, #0c0c0c);
       color: #e0e0e0;
-      min-height: 100vh;
       overflow-x: hidden;
+      transition: background 1s;
     }
 
-    /* FLOATING BACKGROUND */
+    /* FLOATING BACKGROUND ORBS */
     .bg-orbs span {
       position: fixed;
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
       background: rgba(0, 245, 255, 0.08);
       border-radius: 50%;
       animation: float 20s infinite linear;
       z-index: -1;
     }
-
-    .bg-orbs span:nth-child(1) { top: 10%; left: 10%; animation-duration: 25s; }
+    .bg-orbs span:nth-child(1) { top: 15%; left: 10%; animation-duration: 25s; }
     .bg-orbs span:nth-child(2) { top: 60%; left: 70%; animation-duration: 30s; }
-    .bg-orbs span:nth-child(3) { top: 30%; left: 40%; animation-duration: 20s; }
+    .bg-orbs span:nth-child(3) { top: 35%; left: 40%; animation-duration: 20s; }
 
     @keyframes float {
-      from { transform: translateY(0) translateX(0); }
-      to { transform: translateY(-200px) translateX(200px); }
+      0% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-100px) translateX(100px); }
+      100% { transform: translateY(0) translateX(0); }
     }
 
     /* NAVBAR */
     nav {
       position: fixed;
       width: 100%;
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0,0,0,0.85);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -56,6 +56,7 @@
       z-index: 1000;
       box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
       backdrop-filter: blur(10px);
+      transition: background 0.5s;
     }
 
     nav h1 {
@@ -107,6 +108,7 @@
       text-align: center;
       padding: 40px;
       background: radial-gradient(circle at top, #101820, #050505);
+      transition: background 1s;
     }
 
     .hero h2 {
@@ -116,9 +118,7 @@
       animation: glow 2s infinite alternate;
     }
 
-    .hero h2 span {
-      color: white;
-    }
+    .hero h2 span { color: #ffffff; }
 
     .hero p {
       max-width: 750px;
@@ -130,13 +130,13 @@
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 5px #00f5ff; }
-      to { text-shadow: 0 0 25px #00f5ff; }
+      0% { text-shadow: 0 0 5px #00f5ff; }
+      100% { text-shadow: 0 0 25px #00f5ff; }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     /* SECTIONS */
@@ -144,7 +144,7 @@
       padding: clamp(60px, 10vw, 100px) 10%;
       opacity: 0;
       transform: translateY(50px);
-      transition: 1s ease;
+      transition: 1s ease, background 1s;
     }
 
     section.show {
@@ -167,13 +167,14 @@
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255,255,255,0.05);
       padding: 25px;
       border-radius: 20px;
-      transition: 0.4s;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+      transition: 0.5s;
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.05);
       position: relative;
       overflow: hidden;
+      cursor: pointer;
     }
 
     .card::before {
@@ -187,47 +188,20 @@
       transition: 0.5s;
     }
 
-    .card:hover::before {
-      top: 0;
-      left: 0;
-    }
+    .card:hover::before { top: 0; left: 0; }
+    .card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 0 35px rgba(0, 245, 255, 0.4); }
 
-    .card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 0 35px rgba(0, 255, 255, 0.4);
-    }
-
-    .card h4 {
-      margin-bottom: 15px;
-      color: #00f5ff;
-      font-size: clamp(18px, 2vw, 24px);
-    }
-
-    .card p, .card ul {
-      font-size: clamp(13px, 1vw, 16px);
-      line-height: 1.7;
-      color: #dddddd;
-    }
-
-    .card ul {
-      padding-left: 20px;
-    }
+    .card h4 { margin-bottom: 15px; color: #00f5ff; font-size: clamp(18px, 2vw, 24px); }
+    .card p, .card ul { font-size: clamp(13px, 1vw, 16px); line-height: 1.7; color: #dddddd; }
+    .card ul { padding-left: 20px; }
 
     /* CONTACT */
     .contact {
       text-align: center;
       background: linear-gradient(180deg, #050505, #101820);
     }
-
-    .contact p {
-      margin: 10px 0;
-      font-size: clamp(14px, 1vw, 16px);
-    }
-
-    .contact a {
-      color: #00f5ff;
-      text-decoration: none;
-    }
+    .contact p { margin: 10px 0; font-size: clamp(14px, 1vw, 16px); }
+    .contact a { color: #00f5ff; text-decoration: none; }
 
     footer {
       text-align: center;
@@ -264,15 +238,13 @@
     </ul>
   </nav>
 
-  <!-- HOME -->
+  <!-- HERO -->
   <div class="hero" id="home">
     <div>
-      <h2>I'm <span>Iguosa Aghahowa</span>, a Future IT Professional</h2>
+      <h2>I'm <span>Iguosa Aghahowa</span>, Future IT Professional</h2>
       <p>
-        Current Role: I am currently working as an HCA Assistant with the NHS, developing exceptional patient care skills, resilience, and understanding healthcare challenges.  
-        I am pursuing my BSc in Computer Science to bridge the gap between healthcare and technology. My journey is driven by a passion for creating technology solutions that genuinely improve people's lives.  
-        My unique background has equipped me with compassion, integrity, and resilience – essential for meaningful, human-centered solutions, particularly in Health Tech, Clinical Software, and Digital Health Innovation.  
-        My self-directed learning includes systematic documentation, reading logs, and building strong programming and web foundations.
+        Currently working as an HCA Assistant with the NHS, developing patient care skills, resilience, and healthcare understanding.  
+        Pursuing BSc Computer Science to transition into IT. Engaged in reading logs, book blogging, text annotation, and dual-language learning to enhance technical comprehension and problem-solving.
       </p>
     </div>
   </div>
@@ -284,34 +256,32 @@
       <div class="card">
         <h4>Technical Skills</h4>
         <ul>
-          <li>Python Programming: University coursework, self-practice, basic automation scripts</li>
-          <li>HTML & CSS: Building this portfolio, responsive web design</li>
-          <li>Git & GitHub: Version control, repository management, collaboration</li>
-          <li>Database Fundamentals: SQL basics, data modeling from university modules</li>
-          <li>Microsoft Office Suite: Advanced Excel, Word, PowerPoint</li>
-          <li>Problem-Solving: Algorithmic thinking, debugging skills</li>
+          <li>Python Programming: University coursework, automation scripts</li>
+          <li>HTML & CSS: Responsive web design, portfolio development</li>
+          <li>Git & GitHub: Version control and repository management</li>
+          <li>Database Fundamentals: SQL basics, data modeling</li>
+          <li>Microsoft Office Suite: Excel, Word, PowerPoint</li>
+          <li>Problem-Solving & Analytical Thinking</li>
         </ul>
       </div>
 
       <div class="card">
         <h4>Non-Technical Skills</h4>
         <ul>
-          <li>Patient Communication: 2+ years NHS experience, empathetic listening</li>
-          <li>Resilience & Adaptability: Managing healthcare demands while pursuing degree</li>
-          <li>Self-Directed Learning: Reading technical blogs, annotating materials, creating study systems</li>
-          <li>Ethics & Professionalism: Deep understanding from healthcare background</li>
-          <li>Time Management: Balancing work, studies, and CPD activities</li>
-          <li>Attention to Detail: Critical in patient care and coding</li>
+          <li>Patient Communication & Empathy</li>
+          <li>Time Management & Adaptability</li>
+          <li>Self-Directed Learning & Annotation</li>
+          <li>Attention to Detail</li>
+          <li>Professional Ethics & Reliability</li>
         </ul>
       </div>
 
       <div class="card">
         <h4>Core Values</h4>
         <ul>
-          <li>Honesty & Integrity</li>
-          <li>Compassion & Empathy</li>
-          <li>Courage & Resilience</li>
-          <li>Authenticity & Kindness</li>
+          <li>Honesty, Integrity, Authenticity</li>
+          <li>Compassion, Kindness, Empathy</li>
+          <li>Courage, Resilience</li>
         </ul>
       </div>
     </div>
@@ -324,68 +294,63 @@
       <div class="card">
         <h4>Professional IT Portfolio Website</h4>
         <p>
-          Technologies: HTML5, CSS3, GitHub Pages<br>
-          Built a fully responsive portfolio website showcasing healthcare-to-tech transition journey. Modern design, hosted on NTU's Enterprise GitHub. Highlights transferable skills, learning logs, and CPD documentation.<br>
-          <strong>Live Link:</strong> <a href="https://IguosaAghahowa.github.io" target="_blank">Portfolio Website</a>
+          Built a responsive portfolio showcasing healthcare-to-tech transition.  
+          <strong>Technologies:</strong> HTML5, CSS3, GitHub Pages  
+          <br><strong>Live:</strong> <a href="https://IguosaAghahowa.github.io" target="_blank">Portfolio Website</a>
         </p>
       </div>
 
       <div class="card">
-        <h4>Python Learning & Automation Projects</h4>
+        <h4>Reading Logs & Book Blogging</h4>
         <p>
-          Technologies: Python 3, pandas<br>
-          Self-directed projects including data analysis scripts for reading logs and small automation programs. Examples: Reading Log Analyzer, Study Notes Organizer, University coursework exercises. Status: Code available on request.
+          Maintained reading logs, annotated texts, and created story-based headlines. Explored dual-language books to enhance comprehension and retention.
         </p>
       </div>
 
       <div class="card">
-        <h4>Technical Documentation & Learning System</h4>
+        <h4>Healthcare-to-Tech Transferable Project</h4>
         <p>
-          Maintained reading logs, annotated summaries, and dual-language techniques for better retention. Demonstrates self-directed learning, knowledge organization, and CPD commitment.
-        </p>
-      </div>
-
-      <div class="card">
-        <h4>NHS Healthcare Experience (Transferable)</h4>
-        <p>
-          Role: HCA Assistant. Gained insights for Health Tech development: understanding clinical workflows, patient needs, and healthcare challenges. Supports development of clinical software, workflow optimization, and patient communication systems.
+          Applied healthcare experience to identify Health Tech solutions: clinical software usability, workflow optimization, and patient communication systems.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- LEARNING LOG -->
+  <!-- LEARNING LOG / CPD -->
   <section id="learning">
-    <h3>Learning Log (CPD)</h3>
+    <h3>Continuous Professional Development (CPD)</h3>
     <div class="card-container">
       <div class="card">
-        <h4>GitHub Pages & Web Development Fundamentals</h4>
+        <h4>GitHub Pages & Web Development</h4>
         <p><strong>Duration:</strong> 4 hours | Dates: 15-16 Jan 2026</p>
-        <p>Activities: Set up repository, followed HTML/CSS tutorials, deployed portfolio template.</p>
-        <p>Learned: Web hosting, version control, HTML/CSS basics.</p>
+        <p>Activities: Setup repository, followed tutorials, deployed portfolio template.</p>
+        <p>Learned: Web hosting, Git basics, HTML/CSS syntax.</p>
+        <p>Reflection: First real web project; deploying boosted confidence and understanding of version control.</p>
       </div>
 
       <div class="card">
-        <h4>Python Programming Practice & Automation</h4>
+        <h4>Python Programming & Automation</h4>
         <p><strong>Duration:</strong> 5 hours | Dates: 10-14 Jan 2026</p>
-        <p>Activities: Python exercises, reading log analysis script, data structures practice.</p>
-        <p>Learned: Problem-solving, Python libraries, practical automation.</p>
+        <p>Activities: Python exercises, reading log analysis, data structures practice.</p>
+        <p>Learned: Problem-solving, library usage, automation techniques.</p>
+        <p>Reflection: Python practice reinforced university learning and real-world applications.</p>
       </div>
 
       <div class="card">
         <h4>Technical Reading & Knowledge Management</h4>
         <p><strong>Duration:</strong> 6 hours | Dates: 5-12 Jan 2026</p>
-        <p>Activities: Read technical blogs, annotated programming resources, created study notes.</p>
+        <p>Activities: Read blogs, annotated resources, created study notes.</p>
         <p>Learned: Health Tech trends, technical vocabulary, retention strategies.</p>
+        <p>Reflection: Annotating and headlines improved learning efficiency significantly.</p>
       </div>
 
       <div class="card">
         <h4>Future CPD Plans</h4>
-        <p>JavaScript Fundamentals: 8 hours planned</p>
-        <p>Health Tech Webinar Series: 4 hours planned</p>
-        <p>Python Advanced Projects: 10 hours planned</p>
-        <p>LinkedIn Learning: 5 hours planned</p>
-        <p>Goals: Reach 30+ CPD hours, build 2 more technical projects, gain Health Tech industry certification.</p>
+        <p>JavaScript Fundamentals: 8 hours</p>
+        <p>Health Tech Webinar Series: 4 hours</p>
+        <p>Python Advanced Projects: 10 hours</p>
+        <p>LinkedIn Learning: 5 hours</p>
+        <p>Goals: Reach 30+ CPD hours, complete 2 more technical projects, gain Health Tech certification.</p>
       </div>
     </div>
   </section>
@@ -396,7 +361,8 @@
     <p><strong>Name:</strong> Iguosa Aghahowa</p>
     <p><strong>Email:</strong> <a href="mailto:Iguosaaghahowa@yahoo.com">Iguosaaghahowa@yahoo.com</a></p>
     <p><strong>Phone:</strong> 07495 072722</p>
-    <p><strong>Career Goal:</strong> Transitioning into the IT industry from healthcare</p>
+    <p><strong>Current Role:</strong> HCA Assistant with NHS</p>
+    <p><strong>Career Goal:</strong> Transition into IT / Health Tech</p>
   </section>
 
   <footer>
@@ -406,15 +372,25 @@
   <script>
     // SCROLL ANIMATION
     const sections = document.querySelectorAll("section");
+    const body = document.body;
 
     window.addEventListener("scroll", () => {
-      const trigger = window.innerHeight * 0.85;
+      const trigger = window.innerHeight * 0.8;
       sections.forEach(section => {
         const top = section.getBoundingClientRect().top;
-        if (top < trigger) {
-          section.classList.add("show");
-        }
+        if (top < trigger) { section.classList.add("show"); }
       });
+
+      // Animate background color per section
+      if(window.scrollY < sections[1].offsetTop - 50){
+        body.style.background = "linear-gradient(120deg, #0c0c0c, #111111, #0c0c0c)";
+      } else if(window.scrollY < sections[2].offsetTop - 50){
+        body.style.background = "linear-gradient(120deg, #111111, #0a0a0a, #111111)";
+      } else if(window.scrollY < sections[3].offsetTop - 50){
+        body.style.background = "linear-gradient(120deg, #0a0a0a, #111111, #0c0c0c)";
+      } else{
+        body.style.background = "linear-gradient(120deg, #111111, #0c0c0c, #111111)";
+      }
     });
   </script>
 
