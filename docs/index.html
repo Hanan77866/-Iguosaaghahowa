@@ -1,103 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iguosa Aghahowa | Professional Portfolio</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iguosa Aghahowa | Tech Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    <canvas id="particles"></canvas>
 
-<!-- ================= HEADER ================= -->
-<header class="hero">
-  <div class="hero-content">
-    <h1 class="glow-text">Iguosa Aghahowa</h1>
-    <p class="subtitle">
-      Computer Science Undergraduate | HCA Assistant @ NHS | Future IT Professional
-    </p>
-  </div>
-</header>
+    <!-- NAVIGATION -->
+    <nav class="modern-nav">
+        <div class="nav-brand">Iguosa Aghahowa</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="work.html" class="nav-link">Projects</a></li>
+            <li><a href="learning.html" class="nav-link">Learning</a></li>
+        </ul>
+    </nav>
 
-<!-- ================= NAVIGATION ================= -->
-<nav class="main-nav">
-  <a href="index.html" class="active">Home</a>
-  <a href="skills.html">Skills & Achievements</a>
-  <a href="work.html">Projects</a>
-  <a href="learning.html">Learning Log</a>
-  <a href="qualification.html">Qualifications</a>
-</nav>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Iguosa Aghahowa</h1>
+            <div class="role">HCA Assistant @ NHS</div>
+            <div class="goal">// Upgrading career into IT // BSc Computer Science</div>
+            <div class="hero-info">
+                <div class="info-chip">📧 Iguosaaghahowa@yahoo.com</div>
+                <div class="info-chip">📱 07495072722</div>
+                <div class="info-chip">🎓 CS Undergraduate</div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= MAIN CONTENT ================= -->
-<section class="section container">
+    <!-- VALUES SECTION -->
+    <section class="section">
+        <h2>Core Values</h2>
+        <div class="values-container">
+            <div class="value-card"><h3>Honesty</h3><p style="color:var(--text-secondary)">Foundation of trust</p></div>
+            <div class="value-card"><h3>Integrity</h3><p style="color:var(--text-secondary)">Consistency in action</p></div>
+            <div class="value-card"><h3>Authenticity</h3><p style="color:var(--text-secondary)">Genuine self</p></div>
+            <div class="value-card"><h3>Compassion</h3><p style="color:var(--text-secondary)">Understanding others</p></div>
+            <div class="value-card"><h3>Kindness</h3><p style="color:var(--text-secondary)">Meaningful interactions</p></div>
+            <div class="value-card"><h3>Empathy</h3><p style="color:var(--text-secondary)">Shared perspectives</p></div>
+            <div class="value-card"><h3>Courage</h3><p style="color:var(--text-secondary)">Embracing change</p></div>
+            <div class="value-card"><h3>Resilience</h3><p style="color:var(--text-secondary)">Persistent growth</p></div>
+        </div>
+    </section>
 
-  <div class="profile-card">
-
-    <!-- TEXT SIDE -->
-    <div class="profile-text">
-      <h2>Personal Profile</h2>
-
-      <p>
-        I am a dedicated Computer Science undergraduate currently working as an HCA Assistant
-        with the NHS, while actively upgrading my career into the IT sector. My professional
-        background in healthcare has strengthened my communication, adaptability, and
-        problem-solving abilities, while shaping my passion for technology-driven solutions
-        that improve real-world systems.
-      </p>
-
-      <p>
-        My academic journey focuses on building strong foundations in programming, databases,
-        and web technologies through my BSc in Computer Science. I am particularly interested
-        in the intersection of healthcare and digital innovation, aiming to contribute to
-        future Health Tech platforms and data-driven systems.
-      </p>
-
-      <p>
-        Alongside my technical studies, I have developed strong documentation and analytical
-        skills through structured reading logs, book blogging, and text annotation. These
-        abilities directly support technical writing, system documentation, and professional
-        knowledge management within IT environments.
-      </p>
-
-      <p class="core-values">
-        <strong>Core Values:</strong>
-        Honesty, Integrity, Authenticity, Compassion, Kindness, Empathy, Courage, Resilience
-      </p>
-
-      <!-- CONTACT INFO -->
-      <div class="contact-box">
-        <h3>Contact Information</h3>
-
-        <p><strong>Email:</strong> Iguosaaghahowa@yahoo.com</p>
-        <p><strong>Phone:</strong> 07495072722</p>
-        <p>
-          <strong>GitHub:</strong>
-          <a href="https://olympus.ntu.ac.uk/IguosaAghahowa" target="_blank">
-            olympus.ntu.ac.uk/IguosaAghahowa
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <!-- IMAGE SIDE -->
-    <div class="profile-image">
-      <div class="image-frame">
-        <p>
-          Professional Headshot<br>
-          <span>(Insert your photo here)</span>
-        </p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ================= FOOTER ================= -->
-<footer class="footer">
-  <p>© 2026 Iguosa Aghahowa | Professional IT Portfolio</p>
-</footer>
-
+    <script src="script.js"></script>
 </body>
 </html>
