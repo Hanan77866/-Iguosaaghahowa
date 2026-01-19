@@ -1,124 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Iguosa Aghahowa</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Iguosa Aghahowa | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+/* ==== SAME THEME ==== */
+:root {
+--bg-primary:#0a0a0a;
+--bg-secondary:#0f0f1a;
+--bg-glass:rgba(15,15,26,0.7);
+--text-primary:#fff;
+--text-secondary:#a0a0b0;
+--neon-blue:#00f3ff;
+--neon-purple:#d300ff;
+--neon-green:#00ff9d;
+--neon-orange:#ff6b00;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Inter,sans-serif;
+background:var(--bg-primary);
+color:var(--text-primary);
+overflow-x:hidden;
+}
+
+/* ==== NAVBAR ==== */
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(10,10,10,0.9);
+backdrop-filter:blur(10px);
+z-index:1000;
+padding:15px 40px;
+display:flex;
+justify-content:center;
+gap:30px;
+border-bottom:1px solid var(--neon-purple);
+}
+
+nav a{
+color:var(--neon-blue);
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:var(--neon-orange);
+text-shadow:0 0 10px var(--neon-orange);
+}
+
+/* ==== HERO ==== */
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:radial-gradient(ellipse at center,#1a1a2e 0%,#0a0a0a 70%);
+text-align:center;
+}
+
+.hero h1{
+font-size:4em;
+background:linear-gradient(45deg,var(--neon-blue),var(--neon-purple),var(--neon-green));
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.role{color:var(--text-secondary);font-size:1.5em;margin:10px 0}
+.goal{color:var(--neon-orange);margin-bottom:30px}
+
+.hero-info{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+}
+
+.info-chip{
+border:1px solid var(--neon-blue);
+padding:15px 25px;
+border-radius:30px;
+background:var(--bg-glass);
+}
+
+/* ==== VALUES ==== */
+.section{
+padding:100px 60px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+text-align:center;
+color:var(--neon-purple);
+font-size:3em;
+margin-bottom:50px;
+}
+
+.values-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+}
+
+.value-card{
+background:var(--bg-glass);
+border:1px solid var(--neon-purple);
+padding:30px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+}
+
+.value-card:hover{
+transform:translateY(-10px);
+box-shadow:0 10px 30px rgba(211,0,255,0.4);
+}
+
+.value-card h3{color:var(--neon-blue)}
+</style>
 </head>
+
 <body>
-    <div class="cursor"></div>
-    <div class="cursor-follower"></div>
-    <canvas id="particles"></canvas>
 
-    <nav class="modern-nav">
-        <div class="nav-brand">Iguosa Aghahowa</div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="skills.html" class="nav-link">Skills</a></li>
-            <li><a href="work.html" class="nav-link active">Projects</a></li>
-            <li><a href="learning.html" class="nav-link">Learning</a></li>
-        </ul>
-    </nav>
+<nav>
+<a href="index.html">Home</a>
+<a href="skills.html">Skills & Achievements</a>
+<a href="work.html">Projects</a>
+<a href="learning.html">Learning Log</a>
+</nav>
 
-    <section class="section">
-        <h2>Featured Projects</h2>
-        
-        <div class="projects-grid">
-            <div class="project-card featured">
-                <div class="project-banner">🏆 Featured</div>
-                <div class="project-header">
-                    <h3>Professional IT Portfolio Website</h3>
-                    <div class="tech-stack">
-                        <span class="tech-badge">HTML5</span>
-                        <span class="tech-badge">CSS3</span>
-                        <span class="tech-badge">GitHub Pages</span>
-                        <span class="tech-badge">Dark Theme</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <p>Built a complete professional portfolio website from scratch to showcase my transition from healthcare to IT. Features modern dark theme, smooth animations, and responsive design.</p>
-                    <ul>
-                        <li>Responsive design optimized for all devices</li>
-                        <li>Hosted on NTU's Enterprise GitHub (Olympus)</li>
-                        <li>Showcases transferable skills from healthcare</li>
-                        <li>Includes comprehensive learning log</li>
-                    </ul>
-                </div>
-                <div class="project-actions">
-                    <a href="https://IguosaAghahowa.github.io" class="btn-primary" target="_blank">View Live</a>
-                    <a href="https://olympus.ntu.ac.uk/IguosaAghahowa/IguosaAghahowa.github.io" class="btn-secondary" target="_blank">View Code</a>
-                </div>
-            </div>
+<section class="hero">
+<div>
+<h1>Iguosa Aghahowa</h1>
+<div class="role">HCA Assistant @ NHS</div>
+<div class="goal">// Upgrading career into IT // BSc Computer Science</div>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Reading Log Analyzer</h3>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Data Analysis</span>
-                        <span class="tech-badge">Automation</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <p>Python script that analyzes reading log data to track patterns, reading frequency, and genre preferences. Creates visual summaries and generates insights about reading habits.</p>
-                    <ul>
-                        <li>Practical application of programming skills</li>
-                        <li>Combines hobby with technical skills</li>
-                        <li>Demonstrates data analysis capabilities</li>
-                    </ul>
-                </div>
-                <div class="project-actions">
-                    <a href="https://olympus.ntu.ac.uk/IguosaAghahowa/python-projects" class="btn-primary" target="_blank">View Repository</a>
-                </div>
-            </div>
+<div class="hero-info">
+<div class="info-chip">📧 Iguosaaghahowa@yahoo.com</div>
+<div class="info-chip">📱 07495072722</div>
+<div class="info-chip">🎓 CS Undergraduate</div>
+</div>
+</div>
+</section>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Technical Documentation System</h3>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Documentation</span>
-                        <span class="tech-badge">Knowledge Management</span>
-                        <span class="tech-badge">Best Practices</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <p>A systematic approach to documenting technical learning through annotated texts, structured notes, and headline creation. Built using my experience in book blogging adapted for technical content.</p>
-                    <ul>
-                        <li>Improved learning efficiency by ~40%</li>
-                        <li>Creates reusable study resources</li>
-                        <li>Demonstrates documentation skills</li>
-                    </ul>
-                </div>
-                <div class="project-actions">
-                    <a href="learning.html" class="btn-secondary">View Details</a>
-                </div>
-            </div>
+<section class="section">
+<h2>Core Values</h2>
+<div class="values-container">
+<div class="value-card"><h3>Honesty</h3><p>Foundation of trust</p></div>
+<div class="value-card"><h3>Integrity</h3><p>Consistency in action</p></div>
+<div class="value-card"><h3>Authenticity</h3><p>Genuine self</p></div>
+<div class="value-card"><h3>Compassion</h3><p>Understanding others</p></div>
+<div class="value-card"><h3>Kindness</h3><p>Meaningful interactions</p></div>
+<div class="value-card"><h3>Empathy</h3><p>Shared perspectives</p></div>
+<div class="value-card"><h3>Courage</h3><p>Embracing change</p></div>
+<div class="value-card"><h3>Resilience</h3><p>Persistent growth</p></div>
+</div>
+</section>
 
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>Dual-Language Learning Framework</h3>
-                    <div class="tech-stack">
-                        <span class="tech-badge">Self-Learning</span>
-                        <span class="tech-badge">Innovation</span>
-                        <span class="tech-badge">Study Methods</span>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <p>Personalized methodology for learning technical concepts using dual-language books and resources. Combines English technical documentation with dual-language reading strategies for enhanced comprehension.</p>
-                    <ul>
-                        <li>Innovative learning approach</li>
-                        <li>Particularly useful for complex concepts</li>
-                        <li>Demonstrates adaptability</li>
-                    </ul>
-                </div>
-                <div class="project-actions">
-                    <span class="btn-secondary">Research Project</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
 </body>
 </html>
