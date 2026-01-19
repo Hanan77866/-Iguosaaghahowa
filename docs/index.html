@@ -3,43 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iguosa Aghahowa - Professional Portfolio</title>
+    <title>Iguosa Aghahowa | Tech Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Iguosa Aghahowa</h1>
-        <p>Computer Science Undergraduate | HCA Assistant @ NHS | Future IT Professional</p>
-    </header>
-    
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills & Achievements</a>
-        <a href="work.html">Projects</a>
-        <a href="learning.html">Learning Log</a>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="bg-particle"></div>
+        <div class="bg-particle"></div>
+        <div class="bg-particle"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="modern-nav">
+        <div class="nav-brand">Iguosa Aghahowa</div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link active">Home</a></li>
+            <li><a href="skills.html" class="nav-link">Skills</a></li>
+            <li><a href="work.html" class="nav-link">Projects</a></li>
+            <li><a href="learning.html" class="nav-link">Learning</a></li>
+        </ul>
     </nav>
-    
-    <div class="container">
-        <div class="profile-section">
-            <div class="profile-text">
-                <h2>Personal Profile</h2>
-                <p>I am a dedicated Computer Science undergraduate currently working as an HCA Assistant with the NHS, while actively upgrading my career into the IT sector. My unique background in healthcare has equipped me with exceptional interpersonal skills, resilience, and a deep understanding of how technology can improve people's lives.</p>
-                
-                <p>My academic journey includes a BSc in Computer Science, where I am building foundational knowledge in programming, databases, and web technologies. I am passionate about leveraging my healthcare experience to contribute to Health Tech solutions.</p>
-                
-                <p>I have developed strong documentation and analytical skills through my hobbies of reading logs, book blogging, annotating texts, and creating headlines - skills that directly transfer to technical writing, content creation, and knowledge management in IT roles.</p>
-                
-                <p><strong>Core Values:</strong> Honesty, Integrity, Authenticity, Compassion, Kindness, Empathy, Courage, Resilience</p>
-                
-                <h3>Contact Information</h3>
-                <p><strong>Email:</strong> Iguosaaghahowa@yahoo.com</p>
-                <p><strong>Phone:</strong> 07495072722</p>
-                <p><strong>GitHub:</strong> <a href="https://olympus.ntu.ac.uk/IguosaAghahowa" target="_blank">IguosaAghahowa</a></p>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="text-gradient">Iguosa Aghahowa</span>
+            </h1>
+            <div class="hero-subtitle">
+                <span class="typewriter">HCA Assistant @ NHS → Future IT Professional</span>
             </div>
-            <div class="profile-image">
-                <p style="text-align: center; padding: 50px; color: #999;">Professional Headshot<br>(Add your photo here)</p>
+            <p class="hero-description">
+                Computer Science Undergraduate | Compassionate Tech Innovator
+            </p>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">CPD Hours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">BSc</div>
+                    <div class="stat-label">CS Student</div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="work.html" class="btn-primary">View Projects</a>
+                <a href="learning.html" class="btn-secondary">Learning Journey</a>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-text">
+                        I am a dedicated Computer Science undergraduate currently working as an HCA Assistant with the NHS, while actively upgrading my career into the IT sector. My unique background in healthcare has equipped me with exceptional interpersonal skills, resilience, and a deep understanding of how technology can improve people's lives.
+                    </p>
+                    <p class="about-text">
+                        My journey bridges healthcare and technology, driven by a passion for creating solutions that make a real difference. I bring compassion, integrity, and resilience to every technical challenge.
+                    </p>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="value-badges">
+                        <span class="badge">Honesty</span>
+                        <span class="badge">Integrity</span>
+                        <span class="badge">Authenticity</span>
+                        <span class="badge">Compassion</span>
+                        <span class="badge">Kindness</span>
+                        <span class="badge">Empathy</span>
+                        <span class="badge">Courage</span>
+                        <span class="badge">Resilience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="card-icon">📧</div>
+                    <div class="card-info">
+                        <div class="card-label">Email</div>
+                        <div class="card-value">Iguosaaghahowa@yahoo.com</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">📱</div>
+                    <div class="card-info">
+                        <div class="card-label">Phone</div>
+                        <div class="card-value">07495072722</div>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="card-icon">🎓</div>
+                    <div class="card-info">
+                        <div class="card-label">Education</div>
+                        <div class="card-value">BSc Computer Science</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Preview -->
+    <section class="section gradient-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Core Skills</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="skills-preview">
+                <div class="skill-item">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-name">Web Development</div>
+                    <div class="skill-level">HTML, CSS, GitHub Pages</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🐍</div>
+                    <div class="skill-name">Python</div>
+                    <div class="skill-level">Data Analysis, Automation</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">📚</div>
+                    <div class="skill-name">Documentation</div>
+                    <div class="skill-level">Technical Writing, Blogging</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">🤝</div>
+                    <div class="skill-name">Communication</div>
+                    <div class="skill-level">NHS Patient Care Experience</div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="skills.html" class="btn-primary">View All Skills</a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
