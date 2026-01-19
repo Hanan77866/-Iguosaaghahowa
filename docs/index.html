@@ -1,249 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Iguosa Aghahowa | IT Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Iguosa Aghahowa | IT Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ----- BASE ----- */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; scroll-behavior: smooth;}
+    body {
+      background: linear-gradient(135deg, #0a0a0a, #1b1b1b);
+      color:#e0e0e0;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    a {text-decoration:none; color:#00f5ff;}
+    ul {list-style:none;}
 
-<!-- Font Awesome for Icons -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    /* ----- FLOATING BACKGROUND ORBS ----- */
+    .bg-orbs span {
+      position:fixed;
+      width:300px;
+      height:300px;
+      background: rgba(0, 245, 255, 0.08);
+      border-radius:50%;
+      animation: float 25s infinite linear;
+      z-index:-1;
+    }
+    .bg-orbs span:nth-child(1){ top:10%; left:10%; animation-duration:28s; }
+    .bg-orbs span:nth-child(2){ top:60%; left:70%; animation-duration:33s; }
+    .bg-orbs span:nth-child(3){ top:30%; left:40%; animation-duration:20s; }
 
-<style>
-/* ===== Reset & Base ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; scroll-behavior:smooth;}
-body { background: linear-gradient(120deg,#0c0c0c,#111,#0c0c0c); color:#e0e0e0; overflow-x:hidden; transition:background 1s; }
-a { color:#00f5ff; text-decoration:none; }
-h2,h3,h4 { font-weight:600; }
+    @keyframes float{
+      from{transform: translateY(0) translateX(0);}
+      to{transform: translateY(-200px) translateX(200px);}
+    }
 
-/* ===== Floating Orbs ===== */
-.bg-orbs span {
-  position: fixed; width:250px; height:250px; background: rgba(0,245,255,0.08); border-radius:50%;
-  animation: float 20s infinite linear; z-index:-1;
-}
-.bg-orbs span:nth-child(1){top:10%;left:10%;animation-duration:25s;}
-.bg-orbs span:nth-child(2){top:60%;left:70%;animation-duration:30s;}
-.bg-orbs span:nth-child(3){top:35%;left:40%;animation-duration:22s;}
-@keyframes float{0%{transform:translate(0,0);}50%{transform:translate(100px,-80px);}100%{transform:translate(0,0);}}
+    /* ----- NAVBAR ----- */
+    nav{
+      position:fixed;
+      width:100%;
+      background:rgba(0,0,0,0.85);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+      z-index:1000;
+      box-shadow:0 0 15px rgba(0,255,255,0.1);
+      backdrop-filter:blur(10px);
+    }
+    nav h1{ font-size:22px; color:#00f5ff; letter-spacing:1px; }
+    nav ul{ display:flex; gap:25px; }
+    nav ul li a{ font-weight:500; position:relative; transition:0.3s; }
+    nav ul li a::after{
+      content:"";
+      position:absolute;
+      width:0;
+      height:2px;
+      background:#00f5ff;
+      left:0;
+      bottom:-5px;
+      transition:0.3s;
+    }
+    nav ul li a:hover::after{ width:100%; }
+    nav ul li a:hover{ color:#00f5ff; text-shadow:0 0 5px #00f5ff;}
 
-/* ===== NAVBAR ===== */
-nav{
-  position:fixed;width:100%;display:flex;justify-content:space-between;align-items:center;
-  padding:15px 40px;background:rgba(0,0,0,0.85);z-index:1000;box-shadow:0 0 15px rgba(0,255,255,0.1);
-  backdrop-filter:blur(10px);transition:background 0.5s;
-}
-nav h1{font-size:22px;color:#00f5ff;letter-spacing:1px;}
-nav ul{list-style:none;display:flex;gap:25px;}
-nav ul li a{position:relative;font-weight:500;color:#e0e0e0;transition:.3s;}
-nav ul li a::after{content:"";position:absolute;width:0;height:2px;background:#00f5ff;left:0;bottom:-5px;transition:.3s;}
-nav ul li a:hover::after{width:100%;}
-nav ul li a:hover{color:#00f5ff;text-shadow:0 0 5px #00f5ff;}
-@media(max-width:600px){nav{flex-direction:column;gap:10px;}}
+    /* ----- HERO ----- */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px;
+      background: radial-gradient(circle at top, #101820, #050505);
+      position:relative;
+    }
+    .hero h2{
+      font-size: clamp(28px,6vw,52px);
+      margin-bottom:20px;
+      color:#00f5ff;
+      animation: glow 2s infinite alternate;
+    }
+    .hero h2 span{ color:white; }
+    .hero p{
+      max-width:750px;
+      margin:auto;
+      line-height:1.8;
+      font-size:18px;
+      color:#cccccc;
+      animation: fadeUp 2s ease;
+    }
+    @keyframes glow{ from{ text-shadow:0 0 5px #00f5ff;} to{ text-shadow:0 0 25px #00f5ff; } }
+    @keyframes fadeUp{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:40px;background:radial-gradient(circle at top,#101820,#050505);transition:background 1s;}
-.hero h2{font-size:clamp(28px,5vw,52px);color:#00f5ff;animation:glow 2s infinite alternate;}
-.hero h2 span{color:#fff;}
-.hero p{max-width:750px;margin:auto;line-height:1.8;font-size:clamp(14px,1.2vw,18px);color:#ccc;animation:fadeUp 2s ease;}
-@keyframes glow{0%{text-shadow:0 0 5px #00f5ff;}100%{text-shadow:0 0 25px #00f5ff;}}
-@keyframes fadeUp{0%{opacity:0;transform:translateY(30px);}100%{opacity:1;transform:translateY(0);}}
+    /* ----- SECTIONS ----- */
+    section{
+      padding:100px 10%;
+      opacity:0;
+      transform:translateY(50px);
+      transition:1s ease;
+    }
+    section.show{ opacity:1; transform:translateY(0);}
+    section h3{
+      font-size:clamp(24px,4vw,32px);
+      margin-bottom:30px;
+      color:#00f5ff;
+      border-left:4px solid #00f5ff;
+      padding-left:15px;
+    }
 
-/* ===== SECTIONS ===== */
-section{padding:clamp(60px,10vw,100px) 10%;opacity:0;transform:translateY(50px);transition:1s ease, background 1s;}
-section.show{opacity:1;transform:translateY(0);}
-section h3{font-size:clamp(24px,4vw,32px);margin-bottom:30px;color:#00f5ff;border-left:4px solid #00f5ff;padding-left:15px;}
+    /* ----- SKILLS CARDS ----- */
+    .card-container{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap:25px;
+    }
+    .card{
+      background: rgba(255,255,255,0.05);
+      padding:25px;
+      border-radius:20px;
+      transition:0.5s;
+      box-shadow:0 0 20px rgba(0,255,255,0.05);
+      position:relative;
+      overflow:hidden;
+      perspective:1000px;
+    }
+    .card:hover{ transform: rotateY(5deg) rotateX(5deg) scale(1.05); box-shadow:0 0 35px rgba(0,255,255,0.4);}
+    .card h4{ margin-bottom:15px; color:#00f5ff; display:flex; align-items:center; gap:10px;}
+    .card p, .card ul{ font-size:15px; line-height:1.7; color:#dddddd;}
+    .card ul{ padding-left:20px;}
+    .card-icon{ font-size:28px; color:#00f5ff; }
 
-/* ===== CARD CONTAINERS ===== */
-.card-container{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
-.card{
-  background:rgba(255,255,255,0.05);padding:25px;border-radius:20px;transition:0.5s;box-shadow:0 0 20px rgba(0,245,255,0.05);position:relative;overflow:hidden;cursor:pointer;
-  transform-style: preserve-3d;
-}
-.card::before{
-  content:"";position:absolute;top:-100%;left:-100%;width:200%;height:200%;
-  background:linear-gradient(45deg,transparent,rgba(0,245,255,0.15),transparent);transition:0.5s;
-}
-.card:hover::before{top:0;left:0;}
-.card:hover{transform: translateY(-10px) scale(1.03) rotateX(5deg) rotateY(5deg); box-shadow:0 0 35px rgba(0,245,255,0.4);}
-.card h4{margin-bottom:15px;color:#00f5ff;font-size:clamp(18px,2vw,24px);}
-.card p,.card ul{font-size:clamp(13px,1vw,16px);line-height:1.7;color:#ddd;}
-.card ul{padding-left:20px;}
+    /* ----- CPD TIMELINE ----- */
+    .cpd-card{ background: rgba(0,245,255,0.05); padding:20px; border-radius:15px; margin-bottom:20px; transition:0.4s;}
+    .cpd-card:hover{ background: rgba(0,245,255,0.15); transform:translateY(-5px); box-shadow:0 0 25px rgba(0,245,255,0.3);}
+    .cpd-card strong{ color:#00f5ff; }
 
-/* ===== ICON CARDS ===== */
-.skill-icon{font-size:40px;color:#00f5ff;margin-bottom:10px;transition:transform .3s;}
-.card:hover .skill-icon{transform:rotateY(360deg) rotateX(15deg);}
+    /* ----- CONTACT ----- */
+    .contact{text-align:center; background: linear-gradient(180deg, #050505, #101820); }
+    .contact p{ margin:10px 0; font-size:16px;}
+    footer{ text-align:center; padding:20px; background:#000; color:#888; font-size:14px;}
 
-/* ===== CONTACT ===== */
-.contact{text-align:center;background:linear-gradient(180deg,#050505,#101820);}
-.contact p{margin:10px 0;font-size:clamp(14px,1vw,16px);}
-.contact a{color:#00f5ff;}
-footer{text-align:center;padding:20px;background:#000;color:#888;font-size:clamp(12px,1vw,14px);}
-
-</style>
+    /* ----- RESPONSIVE ----- */
+    @media(max-width:600px){
+      .hero h2{ font-size:32px; }
+      nav{ flex-direction:column; gap:10px;}
+    }
+  </style>
 </head>
 <body>
+  <!-- FLOATING ORBS -->
+  <div class="bg-orbs">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<!-- FLOATING BACKGROUND -->
-<div class="bg-orbs"><span></span><span></span><span></span></div>
+  <!-- NAV -->
+  <nav>
+    <h1>Iguosa Aghahowa</h1>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#learning">Learning Log</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<nav>
-<h1>Iguosa Aghahowa</h1>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Work Examples</a></li>
-<li><a href="#learning">Learning Log</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <!-- HERO -->
+  <div class="hero" id="home">
+    <div>
+      <h2>I'm <span>Iguosa Aghahowa</span>, a Future IT Professional</h2>
+      <p>
+        Currently working as an <strong>HCA Assistant with NHS</strong>, developing patient care skills, resilience, and insight into healthcare systems. Pursuing <strong>BSc Computer Science</strong> to transition into IT and Health Tech. Passionate about creating technology solutions that improve people's lives.
+      </p>
+    </div>
+  </div>
 
-<!-- HERO -->
-<div class="hero" id="home">
-<div>
-<h2>I'm <span>Iguosa Aghahowa</span>, Future IT Professional</h2>
-<p>
-Currently working as an HCA Assistant with the NHS, developing patient care skills, resilience, and healthcare understanding.  
-Pursuing BSc Computer Science to transition into IT. Engaged in reading logs, book blogging, text annotation, and dual-language learning to enhance technical comprehension.
-</p>
-</div>
-</div>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h3>Skills & Core Values</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4><span class="card-icon">💻</span> Technical Skills</h4>
+        <ul>
+          <li>Python Programming: coursework & automation scripts</li>
+          <li>HTML & CSS: responsive web design & portfolio</li>
+          <li>Git & GitHub: version control & collaboration</li>
+          <li>Database Fundamentals: SQL basics</li>
+          <li>Microsoft Office Suite: Excel, Word, PowerPoint</li>
+          <li>Problem-Solving: algorithms, debugging</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="card-icon">🤝</span> Non-Technical Skills</h4>
+        <ul>
+          <li>Patient Communication & Empathy</li>
+          <li>Time Management & Adaptability</li>
+          <li>Self-Directed Learning & Annotation</li>
+          <li>Attention to Detail & Professional Ethics</li>
+          <li>Reliability & Teamwork</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4><span class="card-icon">❤️</span> Core Values</h4>
+        <ul>
+          <li>Honesty & Integrity</li>
+          <li>Compassion & Empathy</li>
+          <li>Courage & Resilience</li>
+          <li>Authenticity & Kindness</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-<h3>Skills & Achievements</h3>
-<div class="card-container">
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h3>Projects & Work Examples</h3>
+    <div class="card-container">
+      <div class="card">
+        <h4><span class="card-icon">🌐</span> Professional IT Portfolio</h4>
+        <p>Fully responsive portfolio website showcasing career transition, skills, and CPD activities. Hosted on GitHub Pages. <br><a href="https://IguosaAghahowa.github.io" target="_blank">Live Link</a></p>
+      </div>
+      <div class="card">
+        <h4><span class="card-icon">🐍</span> Python Learning & Automation</h4>
+        <p>Scripts for reading log analysis, study notes organization, and personal data automation. Demonstrates problem-solving & Python fundamentals.</p>
+      </div>
+      <div class="card">
+        <h4><span class="card-icon">📚</span> Technical Documentation & Learning System</h4>
+        <p>Maintained reading logs, annotations, and study notes using dual-language resources. Improves learning retention and knowledge organization.</p>
+      </div>
+      <div class="card">
+        <h4><span class="card-icon">🏥</span> Healthcare Experience</h4>
+        <p>HCA Assistant at NHS, providing insight for Health Tech development, patient communication, workflow optimization, and domain knowledge for IT solutions.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="card">
-<div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-<h4>Technical Skills</h4>
-<ul>
-<li>Python Programming: coursework & automation</li>
-<li>HTML & CSS: responsive web design</li>
-<li>Git & GitHub: version control & collaboration</li>
-<li>Database Fundamentals: SQL basics</li>
-<li>Microsoft Office Suite: Excel, Word, PowerPoint</li>
-<li>Problem-Solving & Analytical Thinking</li>
-</ul>
-</div>
+  <!-- LEARNING LOG / CPD -->
+  <section id="learning">
+    <h3>Continuous Professional Development (CPD)</h3>
+    <p><strong>Total Hours:</strong> 15 hours (Target: 10-30 hours)</p>
+    <div class="card-container">
+      <div class="cpd-card">
+        <strong>GitHub Pages & Web Development</strong> | 4 hours (15-16 Jan 2026)
+        <ul>
+          <li>Set up GitHub repo, HTML/CSS tutorials, deployed portfolio template</li>
+          <li>Learned: web hosting, Git basics, HTML/CSS syntax</li>
+          <li>Reflection: Gained confidence deploying first web project</li>
+        </ul>
+      </div>
+      <div class="cpd-card">
+        <strong>Python Programming & Automation</strong> | 5 hours (10-14 Jan 2026)
+        <ul>
+          <li>Completed Python exercises, reading log analyzer, data structures practice</li>
+          <li>Learned: problem-solving, libraries, automation techniques</li>
+          <li>Reflection: Reinforced coding skills and real-life application</li>
+        </ul>
+      </div>
+      <div class="cpd-card">
+        <strong>Technical Reading & Knowledge Management</strong> | 6 hours (5-12 Jan 2026)
+        <ul>
+          <li>Annotated technical blogs & textbooks, created study headlines</li>
+          <li>Learned: Health Tech trends, technical vocabulary, retention strategies</li>
+          <li>Reflection: Systematic learning improved efficiency</li>
+        </ul>
+      </div>
+    </div>
+    <p><strong>Future CPD Plans:</strong> JavaScript 8h, Health Tech Webinars 4h, Python Advanced Projects 10h, LinkedIn Learning 5h</p>
+  </section>
 
-<div class="card">
-<div class="skill-icon"><i class="fas fa-users"></i></div>
-<h4>Non-Technical Skills</h4>
-<ul>
-<li>Patient Communication & Empathy</li>
-<li>Time Management & Adaptability</li>
-<li>Self-Directed Learning & Annotation</li>
-<li>Attention to Detail</li>
-<li>Professional Ethics & Reliability</li>
-</ul>
-</div>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <h3>Contact Information</h3>
+    <p><strong>Name:</strong> Iguosa Aghahowa</p>
+    <p><strong>Email:</strong> <a href="mailto:Iguosaaghahowa@yahoo.com">Iguosaaghahowa@yahoo.com</a></p>
+    <p><strong>Phone:</strong> 07495 072722</p>
+    <p><strong>Current Role:</strong> HCA Assistant, NHS</p>
+    <p><strong>Career Goal:</strong> Transition into IT / Health Tech</p>
+  </section>
 
-<div class="card">
-<div class="skill-icon"><i class="fas fa-heart"></i></div>
-<h4>Core Values</h4>
-<ul>
-<li>Honesty, Integrity, Authenticity</li>
-<li>Compassion, Kindness, Empathy</li>
-<li>Courage & Resilience</li>
-</ul>
-</div>
+  <footer>
+    © 2026 Iguosa Aghahowa | Professional IT Portfolio | Powered by GitHub Pages
+  </footer>
 
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-<h3>Work Examples</h3>
-<div class="card-container">
-
-<div class="card">
-<h4><i class="fas fa-globe"></i> Professional IT Portfolio</h4>
-<p>Built a responsive portfolio showcasing healthcare-to-tech transition. <br><strong>Live:</strong> <a href="https://IguosaAghahowa.github.io" target="_blank">Portfolio Website</a></p>
-</div>
-
-<div class="card">
-<h4><i class="fas fa-book"></i> Reading Logs & Book Blogging</h4>
-<p>Maintained reading logs, annotated texts, created story-based headlines, dual-language reading for comprehension.</p>
-</div>
-
-<div class="card">
-<h4><i class="fas fa-hospital"></i> Healthcare-to-Tech Project</h4>
-<p>Applied healthcare experience to Health Tech: clinical software usability, workflow optimization, patient communication systems.</p>
-</div>
-
-</div>
-</section>
-
-<!-- CPD / Learning -->
-<section id="learning">
-<h3>Continuous Professional Development (CPD)</h3>
-<div class="card-container">
-
-<div class="card">
-<h4><i class="fas fa-code"></i> GitHub Pages & Web Development</h4>
-<p><strong>Duration:</strong> 4h | 15-16 Jan 2026</p>
-<p>Set up repository, followed tutorials, deployed portfolio template.</p>
-<p>Learned: Web hosting, Git basics, HTML/CSS syntax.</p>
-<p>Reflection: First real web project; deploying boosted confidence.</p>
-</div>
-
-<div class="card">
-<h4><i class="fas fa-python"></i> Python Programming & Automation</h4>
-<p><strong>Duration:</strong> 5h | 10-14 Jan 2026</p>
-<p>Python exercises, reading log analysis, data structures practice.</p>
-<p>Learned: Problem-solving, library usage, automation techniques.</p>
-<p>Reflection: Reinforced learning & real-world applications.</p>
-</div>
-
-<div class="card">
-<h4><i class="fas fa-book-reader"></i> Technical Reading & Knowledge Management</h4>
-<p><strong>Duration:</strong> 6h | 5-12 Jan 2026</p>
-<p>Read blogs, annotated resources, created study notes.</p>
-<p>Learned: Health Tech trends, vocabulary, retention strategies.</p>
-<p>Reflection: Systematic learning improved efficiency significantly.</p>
-</div>
-
-<div class="card">
-<h4><i class="fas fa-lightbulb"></i> Future CPD Plans</h4>
-<p>JavaScript Fundamentals: 8h | Health Tech Webinar: 4h | Python Advanced Projects: 10h | LinkedIn Learning: 5h</p>
-<p>Goal: Reach 30+ CPD hours, complete 2 more technical projects, Health Tech certification.</p>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact">
-<h3>Contact Information</h3>
-<p><strong>Name:</strong> Iguosa Aghahowa</p>
-<p><strong>Email:</strong> <a href="mailto:Iguosaaghahowa@yahoo.com">Iguosaaghahowa@yahoo.com</a></p>
-<p><strong>Phone:</strong> 07495 072722</p>
-<p><strong>Current Role:</strong> HCA Assistant with NHS</p>
-<p><strong>Career Goal:</strong> Transition into IT / Health Tech</p>
-</section>
-
-<footer>
-© 2026 Iguosa Aghahowa | Professional IT Portfolio | Powered by GitHub Pages
-</footer>
-
-<script>
-// Scroll animations
-const sections = document.querySelectorAll("section");
-const body = document.body;
-window.addEventListener("scroll",()=>{
-  const trigger=window.innerHeight*0.8;
-  sections.forEach(section=>{
-    const top=section.getBoundingClientRect().top;
-    if(top<trigger) section.classList.add("show");
-  });
-  // Background gradient animation
-  if(window.scrollY<sections[1].offsetTop-50){body.style.background="linear-gradient(120deg,#0c0c0c,#111,#0c0c0c)";}
-  else if(window.scrollY<sections[2].offsetTop-50){body.style.background="linear-gradient(120deg,#111,#0a0a0a,#111)";}
-  else if(window.scrollY<sections[3].offsetTop-50){body.style.background="linear-gradient(120deg,#0a0a0a,#111,#0c0c0c)";}
-  else{body.style.background="linear-gradient(120deg,#111,#0c0c0c,#111)";}
-});
-</script>
+  <script>
+    // Scroll-trigger animations
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if(top < trigger) section.classList.add("show");
+      });
+    });
+  </script>
 </body>
 </html>
