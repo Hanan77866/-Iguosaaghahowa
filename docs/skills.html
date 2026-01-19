@@ -1,60 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills & Achievements</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Skills & Achievements</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="index.html">
+
+<style>
+body{background:#0a0a0a;color:white;font-family:Inter,sans-serif}
+nav{position:fixed;top:0;width:100%;background:black;padding:15px;display:flex;justify-content:center;gap:30px}
+nav a{color:#00f3ff;text-decoration:none;font-weight:bold}
+nav a:hover{color:#ff6b00}
+
+.section{padding:100px 60px;max-width:1200px;margin:auto}
+h2{text-align:center;color:#d300ff;font-size:3em;margin-bottom:50px}
+
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.skill-item{background:rgba(15,15,26,0.7);padding:20px;border-left:3px solid #00f3ff;border-radius:10px;margin-bottom:20px}
+.skill-bar{height:6px;background:#222;border-radius:5px;overflow:hidden}
+.skill-progress{height:100%;background:linear-gradient(90deg,#00f3ff,#d300ff)}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Skills & Achievements</h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="skills.html">Skills & Achievements</a>
-        <a href="work.html">Work Examples</a>
-        <a href="learning.html">Learning Log</a>
-    </nav>
-    <div class="container">
-        <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Programming Languages:</strong> [Python], [Java], [C++]</li>
-            <p><strong>Explanation:</strong> [Explain why this skill is important]</p>
-            <p><strong>Context:</strong> [Describe where and how you applied this skill]</p>
-            <p><strong>Evidence:</strong> [Provide proof, e.g., project link or certificate]</p>
+<nav>
+<a href="index.html">Home</a>
+<a href="skills.html">Skills & Achievements</a>
+<a href="work.html">Projects</a>
+<a href="learning.html">Learning Log</a>
+</nav>
 
-            <li><strong>Web Development:</strong> [HTML], [CSS], [JavaScript]</li>
-            <p><strong>Explanation:</strong> [Explain why this skill is important]</p>
-            <p><strong>Context:</strong> [Describe where and how you applied this skill]</p>
-            <p><strong>Evidence:</strong> [Provide proof, e.g., project link or certificate]</p>
-        </ul>
+<section class="section">
+<h2>Technical & Professional Skills</h2>
 
-        <h2>Soft Skills</h2>
-        <ul>
-            <li>[Communication]</li>
-            <p><strong>Explanation:</strong> [Explain why this skill is important]</p>
-            <p><strong>Context:</strong> [Describe where and how you applied this skill]</p>
-            <p><strong>Evidence:</strong> [Provide proof, e.g., feedback or award]</p>
-        </ul>
+<div class="skills-grid">
 
-        <h2>Certifications & Courses</h2>
-        <ul>
-            <li>[AWS Certified Solutions Architect] – [Year]</li>
-            <p><strong>Explanation:</strong> [Explain why this certification is relevant]</p>
-            <p><strong>Context:</strong> [Describe how it supports your career goals]</p>
-            <p><strong>Evidence:</strong> [Attach certificate or link]</p>
-        </ul>
+<div>
+<h3 style="color:#00ff9d">Technical</h3>
+<div class="skill-item">Python<div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div></div>
+<div class="skill-item">HTML & CSS<div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div></div>
+<div class="skill-item">Git & GitHub<div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div></div>
+<div class="skill-item">SQL<div class="skill-bar"><div class="skill-progress" style="width:65%"></div></div></div>
+</div>
 
-        <h2>Achievements</h2>
-        <ul>
-            <li>[Dean’s List – Year]</li>
-            <p><strong>Explanation:</strong> [Explain what this achievement means]</p>
-            <p><strong>Context:</strong> [Describe the circumstances or criteria]</p>
-            <p><strong>Evidence:</strong> [Provide proof, e.g., official letter]</p>
-        </ul>
-    </div>
+<div>
+<h3 style="color:#00ff9d">Professional</h3>
+<div class="skill-item">Reading & Documentation<div class="skill-bar"><div class="skill-progress" style="width:95%"></div></div></div>
+<div class="skill-item">Content Creation<div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div></div>
+<div class="skill-item">Book Blogging<div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div></div>
+<div class="skill-item">Dual-Language Learning<div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div></div>
+</div>
+
+</div>
+</section>
+
 </body>
 </html>
